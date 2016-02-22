@@ -1,10 +1,13 @@
 'use strict'
 import React from 'react';
-
+import { connect } from 'react-redux'
 @connect(state => state)
 export default class login extends React.Component{
      constructor(props) {
         super(props)
+        this.state={
+            info: ''
+        }
     }
 
     render() {

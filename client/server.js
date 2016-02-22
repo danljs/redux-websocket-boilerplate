@@ -10,7 +10,6 @@ new WebpackDevServer(
 	webpack(config), 
 	{
 		publicPath: config.output.publicPath,
-		// contentBase: './build',
 		hot: true,
 		headers: {"Access-Control-Allow-Origin": "*"},
 		stats: {colors: true},
