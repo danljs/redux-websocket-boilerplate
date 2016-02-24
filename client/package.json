@@ -4,14 +4,24 @@
   "description": "An sample using WebSockets inside a Redux-powered JavaScript app",
   "main": "app.js",
   "dependencies": {
+    "babelify": "^6.4.0",
+    "browserify": "^12.0.1",
+    "gulp": "^3.9.0",
+    "gulp-cssnano": "^2.1.1",
+    "gulp-less": "^3.0.5",
+    "gulp-minify-css": "^1.2.3",
+    "gulp-plumber": "^1.1.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-watch": "^4.3.5",
     "history": "^2.0.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-modal": "^0.6.1",
     "react-redux": "^4.0.6",
-    "react-router": "^1.0.3",
+    "react-router": "^2.0.0",
     "redux": "^3.0.5",
-    "redux-thunk": "^1.0.3"
+    "redux-thunk": "^1.0.3",
+    "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {
     "babel-core": "^5.6.7",
