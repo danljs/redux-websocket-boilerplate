@@ -1,4 +1,4 @@
-import constants from '../../constants'
+import constants from '../constants'
 import {connecting,connected,receive_message,POST_MESSAGE} from '../actions/ws_actions'
 
 export default function admin_ws(store){
@@ -17,7 +17,7 @@ export default function admin_ws(store){
         }
         store.dispatch(connecting())
 
-        websocket = new WebSocket("ws://" + window.location.hostname + ':'+ constants.WS_PORT + '/admin')
+        websocket = new WebSocket("ws://" + window.location.hostname + ':'+ constants.WS_PORT + '/server')
         websocket.onmessage = (event)=>{store.dispatch(receive_message(JSON.parse(event.data)))}
         websocket.onopen = ()=>{store.dispatch(connected())}
         // websocket.onclose = onclose
