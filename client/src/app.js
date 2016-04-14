@@ -1,17 +1,20 @@
 'use strict';
 import React from 'react'
 import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import {Router, Route, IndexRoute, useRouterHistory} from 'react-router'
+import { createHashHistory } from 'history'
 
-import {Router, Route, IndexRoute} from 'react-router'
-import createHistory from 'history/lib/createHashHistory'
+import rootReducer from './reducers'
 
 import login from './components/login'
-import rootReducer from './reducers'
-import { Provider } from 'react-redux'
-import configure from './store/configure'
+import dashboard from './components/dashboard'
+import workplace from './components/workplace'
 
-let DevTools = configure.DevTools
-const store = configure.create(rootReducer);
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+
+const store = createStore(rootReducer, {}, applyMiddleware(thunk));
 window.store = store
 
 class app extends React.Component{
@@ -21,16 +24,15 @@ class app extends React.Component{
 }
 
 render(
-	<Provider store={store}>
-    <div>
-		 <Router history={createHistory({queryKey: false})}>
-          <Route path="/" component={app}>
-            <IndexRoute component={login} />
-            <Route path="login" component={login}/>
-          </Route>
-        </Router>
-        <DevTools/>
-    </div>
-	</Provider>,
-	document.getElementById('app')
+  <Provider store={store}>
+    <Router history={useRouterHistory(createHashHistory)({ queryKey: false })}>
+      <Route path="/" component={app}>
+        <IndexRoute component={login} />
+        <Route path="login" component={login}/>
+        <Route path="dashboard" component={dashboard}/>
+        <Route path="workplace" component={workplace}/>
+      </Route>
+    </Router>
+  </Provider>,
+  document.getElementById('app')
 )
