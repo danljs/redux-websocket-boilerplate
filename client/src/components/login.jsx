@@ -2,15 +2,18 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
-@connect(state => state)
-export default class login extends React.Component{
-  constructor(props) {
-    super(props)
+class login extends React.Component{
+  constructor(props,context) {
+    super(props,context)
     this.state={
       info: ''
     }
   }
   
+  static contextTypes = {
+    router: React.PropTypes.object,
+  }        
+
   render() {
     var me = this
     return (
@@ -45,9 +48,7 @@ export default class login extends React.Component{
                 }
                 e.preventDefault()
                 console.log(me)
-                me.props.history.push('/dashboard')
-                // me.props.history.push({ path: '/dashboard', query: {}, state: {} })
-                // me.props.history.pushState(null, '/dashboard')
+                me.context.router.push('/dashboard')
               }}>Sign in</button>
             </div>
           </div>
@@ -56,3 +57,4 @@ export default class login extends React.Component{
     )
   }
 }
+export default connect(state => state)(login)

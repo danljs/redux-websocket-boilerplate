@@ -2,8 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
-@connect(state => state)
-export default class workplace extends React.Component{
+class workplace extends React.Component{
     constructor(props) {
         super(props)
         this.state = {
@@ -20,3 +19,4 @@ export default class workplace extends React.Component{
     )
   }
 }
+export default connect(state => state)(workplace)
