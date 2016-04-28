@@ -1,7 +1,7 @@
 'use strict'
 import React from 'react';
 import { connect } from 'react-redux'
-
+import {post_message} from '../actions/ws_actions'
 class login extends React.Component{
   constructor(props,context) {
     super(props,context)
@@ -44,11 +44,12 @@ class login extends React.Component{
             <div className="col-sm-offset-2 col-sm-10">
               <button type="submit" className="btn btn-default" onClick={e => {
                 if (!me.refs.email.checkValidity()||!me.refs.password.checkValidity()) {
-                  return
+                  return;
                 }
-                e.preventDefault()
-                console.log(me)
-                me.context.router.push('/dashboard')
+                e.preventDefault();
+                console.log(me);
+                me.props.dispatch(post_message({message:'message'}));
+                me.context.router.push('/dashboard');
               }}>Sign in</button>
             </div>
           </div>
