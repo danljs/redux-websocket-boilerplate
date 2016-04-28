@@ -9,14 +9,15 @@ module.exports = (host, port, path) => {
         ws.on('message', msg => {
             msg = JSON.parse(msg)
             console.log(msg)
+            send({received : msg})
         })
         ws.on('close', () => {console.log('A ws client disconnected.')})
         ws.on('error', () => {console.log(e)})
-        function send(msg, cb) {
+        let send = (msg, cb) => {
             cb = cb || () => {}
             ws.send(JSON.stringify(msg), err => {return ws.readyState === 3 ? cb() : cb(err)})
         }
-        function broadcast(msg){
+        let broadcast = msg => {
             wss.clients.map(c => {c.send(JSON.stringify(msg))})
         }
     }
