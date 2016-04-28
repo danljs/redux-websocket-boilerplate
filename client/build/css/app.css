@@ -1,6 +1,6 @@
 .login {
   position: relative;
-  padding: 45px 15px 15px 45px;
+  padding: 45px 45px 15px 45px;
   margin: 0 -15px 15px;
   border-color: #e5e5e5 #eee #eee;
   border-style: solid;
@@ -18,4 +18,9 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   content: "MERN";
+}
+@media all and (max-width:400px) {
+  .login button {
+    width: 100%;
+  }
 }
