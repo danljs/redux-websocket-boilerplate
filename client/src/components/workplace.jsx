@@ -1,5 +1,5 @@
 'use strict'
-import React from 'react';
+import React from 'react'
 import { connect } from 'react-redux'
 
 class workplace extends React.Component{
@@ -14,9 +14,8 @@ class workplace extends React.Component{
     return (
       <div>
         <div>Workplace</div>
-        
       </div>
     )
   }
 }
-export default connect(state => state)(workplace)
+export default connect(any => any)(workplace)

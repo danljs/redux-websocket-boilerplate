@@ -1,16 +1,15 @@
 'use strict'
-import React from 'react';
+import React from 'react'
 import { connect } from 'react-redux'
+import base from './base'
 
-class dashboard extends React.Component{
+class dashboard extends base{
   constructor(props) {
       super(props)
       this.state = {
       }
   }
-  static contextTypes = {
-    router: React.PropTypes.object,
-  }        
+  
   render() {
     var me = this
     return (
@@ -23,4 +22,4 @@ class dashboard extends React.Component{
     )
   }
 }
-export default connect(state => state)(dashboard)
+export default connect(any => any)(dashboard)

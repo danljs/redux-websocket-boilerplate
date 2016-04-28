@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 import React from 'react'
 import { render } from 'react-dom'
 
@@ -13,11 +13,10 @@ import rootReducer from './reducers'
 import login from './components/login'
 import dashboard from './components/dashboard'
 import workplace from './components/workplace'
-import sock from './util/admin_ws'
+import socket from './util/admin_ws'
 
-const store = createStore(rootReducer, {}, applyMiddleware(thunk));
-window.store = store
-sock(store);
+const store = createStore(rootReducer, {}, applyMiddleware(thunk))
+socket(store)
 
 class app extends React.Component{
 	render() {
