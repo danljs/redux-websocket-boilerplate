@@ -1,5 +1,28 @@
 @mobil-login: rgba(129,206,255,0.90) 50%;
 
+// .box-shadow(@style, @c) when (iscolor(@c)) {
+//   -webkit-box-shadow: @style @c;
+//   box-shadow:         @style @c;
+// }
+// .box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
+//   .box-shadow(@style, rgba(0, 0, 0, @alpha));
+// }
+
+.box-shadow(@shadow) {
+	-moz-box-shadow: @shadow;
+    -webkit-box-shadow: @shadow;
+    box-shadow: @shadow;
+}
+.column-gap(@gap) {
+	-webkit-column-gap: @gap; 
+	   -moz-column-gap: @gap; 
+	        column-gap: @gap;
+}
+.column-count(@count) {
+	-webkit-column-count: @count;
+	   -moz-column-count: @count;
+	        column-count: @count;
+}
 .login{
 	position: relative;
     padding: 45px 45px 15px 45px;
@@ -7,8 +30,7 @@
     border-color: #e5e5e5 #eee #eee;
     border-style: solid;
     border-width: 1px 0;
-    -webkit-box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
-    box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+    .box-shadow(inset 0 3px 6px rgba(0,0,0,.05));
 	&:after{
 		position: absolute;
 	    top: 15px;
@@ -18,7 +40,7 @@
 	    color: #959595;
 	    text-transform: uppercase;
 	    letter-spacing: 1px;
-	    content: "MERN";
+	    content: "Booking";
 	}
 	@media @xxs{
 		button{
@@ -36,12 +58,8 @@
 			background-color: #f1f1f1;
 			.week{
 				width: 100%;
-				-webkit-column-gap: 1px; 
-	               -moz-column-gap: 1px; 
-	                    column-gap: 1px;
-				-webkit-column-count: 7;
-				   -moz-column-count: 7;
-				        column-count: 7;
+				.column-gap(1px);
+				.column-count(7);
 				&>.header{
 					width: 100%;
 					background-color: #fff;
