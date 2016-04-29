@@ -31,3 +31,57 @@
 		}
 	}
 }
+.calendar{
+		.month{
+			background-color: #f1f1f1;
+			.week{
+				width: 100%;
+				-webkit-column-gap: 1px; 
+	               -moz-column-gap: 1px; 
+	                    column-gap: 1px;
+				-webkit-column-count: 7;
+				   -moz-column-count: 7;
+				        column-count: 7;
+				&>.header{
+					width: 100%;
+					background-color: #fff;
+					text-align: center;
+					line-height: 20px;
+					font-size: 10px;
+					margin-bottom: 1px;
+				}
+				.day{
+					display: inline-block;
+				    width: 90%;
+				    cursor: pointer;
+				    height: auto;
+				    min-height: 50px;
+				    margin-bottom: 1px;
+				    overflow: hidden;
+				    text-align: right;
+				    padding: 0 5%;
+					&>.header{
+						font-size:10px;
+						padding: 3px;
+					}
+					&>.event{
+						text-align: left;
+					    font-size: 11px;
+					    border-radius: 3px;
+					    background-color: #30ACDA;
+					    color: #fff;
+					    padding: 0 5%;
+					    line-height: 22px;
+					    width: 90%;
+					    text-overflow: ellipsis;
+					    height: 22px;
+					    word-break: break-all;
+					    &:hover{
+					    	
+							background-color: #f1f1f1 !important;
+					    }
+					}
+				}
+			}
+		}
+	}
