@@ -1,4 +1,4 @@
-package chat
+package controller
 
 type Message struct {
 	Author string `json:"author"`
@@ -6,5 +6,5 @@ type Message struct {
 }
 
 func (self *Message) String() string {
-	return self.Author + " says " + self.Body
+	return self.Author + ":" + self.Body
 }

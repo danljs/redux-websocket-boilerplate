@@ -46,7 +46,7 @@ class login extends base{
                 }
                 e.preventDefault()
                 console.log(me)
-                me.props.dispatch(post_message({message:'message'}))
+                me.props.dispatch(post_message({author:'message',body:'login'}))
                 me.context.router.push('/dashboard')
               }}>Sign in</button>
             </div>

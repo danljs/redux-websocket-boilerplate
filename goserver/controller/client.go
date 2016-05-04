@@ -1,4 +1,4 @@
-package chat
+package controller
 
 import (
 	"fmt"
@@ -21,7 +21,7 @@ type Client struct {
 	doneCh chan bool
 }
 
-// Create new chat client.
+// Create new client.
 func NewClient(ws *websocket.Conn, server *Server) *Client {
 
 	if ws == nil {
