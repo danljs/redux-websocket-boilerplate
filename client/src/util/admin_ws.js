@@ -1,4 +1,4 @@
-import {connecting,connected,receive_message,POST_MESSAGE} from '../actions/ws_actions'
+import {connecting,connected,receive_message,POST_MESSAGE} from '../actions/index'
 
 let websocket
 export default store => {

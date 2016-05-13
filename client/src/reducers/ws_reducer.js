@@ -1,5 +1,5 @@
 'use strict'
-import { RECEIVE_MESSAGE} from '../actions/ws_actions'
+import { RECEIVE_MESSAGE} from '../actions/index'
 
 const initialState = {
 }
