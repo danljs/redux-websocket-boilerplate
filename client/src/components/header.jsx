@@ -15,7 +15,7 @@ class header extends React.Component{
     var me = this
     var lang = me.props.lang.keys
     return (
-      <div>
+      <div className='header-area'>
         <button onClick={e=>{
           me.props.dispatch(change_lang('en'))
         }}>{lang.english}</button>

@@ -1,11 +1,17 @@
 'use strict'
 import React from 'react'
 import { connect } from 'react-redux'
-
+import Item from './item'
 class workplace extends React.Component{
     constructor(props) {
         super(props)
         this.state = {
+          items: 
+          [
+            {name:'name', price:'price'},
+            {name:'name', price:'price'},
+            {name:'name', price:'price'}
+          ]
         }
     }
 
@@ -14,6 +20,11 @@ class workplace extends React.Component{
     return (
       <div>
         <div>Workplace</div>
+        {
+          me.state.items.map((c,i)=>{
+            return <Item key={i} name={c.name} price={c.price}/>
+          })
+        }
       </div>
     )
   }

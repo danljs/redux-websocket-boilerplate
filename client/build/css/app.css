@@ -81,3 +81,9 @@
 .calendar .month .week .day > .event:hover {
   background-color: #f1f1f1 !important;
 }
+.header-area {
+  padding: 5px 30px 45px ;
+}
+.header-area button {
+  float: right;
+}
