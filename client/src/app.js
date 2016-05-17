@@ -14,6 +14,7 @@ import Header from './components/header'
 import login from './components/login'
 import dashboard from './components/dashboard'
 import workplace from './components/workplace'
+import admin from './components/admin'
 
 import socket from './util/admin_ws'
 
@@ -41,6 +42,7 @@ render(
           <Route path="login" component={login}/>
           <Route path="dashboard" component={dashboard}/>
           <Route path="workplace" component={workplace}/>
+          <Route path="admin" component={admin}/>
         </Route>
       </Router>
     </Provider>,

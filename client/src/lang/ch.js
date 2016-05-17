@@ -6,5 +6,7 @@ module.exports = {
 	password : '密码',
 	remember_me : '记住我',
 	sign_in : '登陆',
-	add: '追加'
+	add: '追加',
+	logout: '注销',
+	admin: '管理'
 }
