@@ -5,5 +5,6 @@ module.exports = {
   email : '邮件',
 	password : '密码',
 	remember_me : '记住我',
-	sign_in : '登陆'
+	sign_in : '登陆',
+	add: '追加'
 }

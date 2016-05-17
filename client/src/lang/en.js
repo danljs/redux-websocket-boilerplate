@@ -5,5 +5,6 @@ module.exports = {
 	email : 'Email',
 	password : 'Password',
 	remember_me : 'Remember me',
-	sign_in : 'Sign in'
+	sign_in : 'Sign in',
+	add: 'add'
 }
