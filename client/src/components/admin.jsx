@@ -12,7 +12,7 @@ class admin extends React.Component{
     var me = this
     var lang = me.props.lang.keys
     return (
-      <div className='estimation'>
+      <div className='admin'>
         <div>admin</div>
       </div>
     )

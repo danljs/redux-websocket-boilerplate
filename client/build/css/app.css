@@ -86,8 +86,15 @@
 }
 .header-area button {
   float: right;
+  width: 120px;
+  height: 40px;
+  margin-left: 1px;
+  font-size: 24px;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: 1.4em;
 }
-.estimation {
+.quote {
   font-size: 24px;
   font-family: inherit;
   font-weight: inherit;
@@ -98,22 +105,22 @@
   position: relative;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
-.estimation input:-webkit-input-placeholder {
+.quote input:-webkit-input-placeholder {
   font-style: italic;
   font-weight: 300;
   color: #e6e6e6;
 }
-.estimation input:-moz-placeholder {
+.quote input:-moz-placeholder {
   font-style: italic;
   font-weight: 300;
   color: #e6e6e6;
 }
-.estimation input:input-placeholder {
+.quote input:input-placeholder {
   font-style: italic;
   font-weight: 300;
   color: #e6e6e6;
 }
-.estimation h1 {
+.quote h1 {
   position: absolute;
   top: -155px;
   width: 100%;
@@ -125,7 +132,7 @@
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
 }
-.estimation .header .add {
+.quote .header .add {
   float: left;
   margin: 10px 0px 0px 20px;
   width: 40px;
@@ -134,8 +141,8 @@
   background-size: 100% auto;
   cursor: pointer;
 }
-.estimation .header .new-todo,
-.estimation .header .edit {
+.quote .header .new-todo,
+.quote .header .edit {
   margin: 0;
   border: 0;
   outline: none;
@@ -148,44 +155,43 @@
   -moz-font-smoothing: antialiased;
   font-smoothing: antialiased;
 }
-.estimation .header .new-todo {
+.quote .header .new-todo {
   padding: 16px 16px 5px 5px;
   border: none;
   background: rgba(0, 0, 0, 0.003);
   box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
 }
-.estimation .main {
+.quote .main {
   position: relative;
   z-index: 2;
   border-top: 1px solid #e6e6e6;
 }
-.estimation .main ul {
+.quote .main ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.estimation .main ul li {
+.quote .main ul li {
   position: relative;
   font-size: 24px;
   border-bottom: 1px solid #ededed;
   padding: 0px 20px 0px 20px;
 }
-.estimation .main ul li div {
+.quote .main ul li div {
   float: left;
   margin: 0px 20px 0px 0px;
 }
-.estimation .main ul li .delete {
+.quote .main ul li .delete {
   float: right;
   cursor: pointer;
 }
-.estimation .footer {
+.quote .footer {
   color: #777;
-  padding: 10px 15px;
-  height: 20px;
+  padding: 5px 15px;
+  height: 30px;
   text-align: center;
-  border-top: 1px solid #e6e6e6;
 }
-.estimation .footer:before {
+.quote .footer:before {
   content: '';
   position: absolute;
   right: 0;
@@ -194,4 +200,19 @@
   height: 50px;
   overflow: hidden;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+.quote .footer div {
+  float: right;
+  margin: 0px 20px 0px 0px;
+}
+.admin {
+  font-size: 24px;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: 1.4em;
+  background: #fff;
+  margin: 30px 20px 40px 20px;
+  padding: 10px 10px 10px 10px;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }

@@ -92,7 +92,7 @@ class dashboard extends base{
           </div>
         </div>
         <button type="submit" className="btn btn-default" onClick={e => {
-          me.context.router.push('/workplace')
+          me.context.router.push('/quote')
         }}>go!</button>
       </div>
     )

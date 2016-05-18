@@ -8,5 +8,12 @@ module.exports = {
 	sign_in : '登陆',
 	add: '追加',
 	logout: '注销',
-	admin: '管理'
+	admin: '管理',
+	quote: '报价',
+	name: '名称',
+	price: '单价',
+	quantity: '数量',
+	discount: '折扣',
+	amount: '金额',
+	summary: '总额'
 }

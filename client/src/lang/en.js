@@ -6,7 +6,14 @@ module.exports = {
 	password : 'Password',
 	remember_me : 'Remember me',
 	sign_in : 'Sign in',
-	add: 'add',
-	logout: 'logout',
-	admin: 'admin'
+	add: 'Add',
+	logout: 'Logout',
+	admin: 'Admin',
+	quote: 'Quote',
+	name: 'Name',
+	price: 'Price',
+	quantity: 'Quantity',
+	discount: 'Discount',
+	amount: 'Amount',
+	summary: 'Summary'
 }

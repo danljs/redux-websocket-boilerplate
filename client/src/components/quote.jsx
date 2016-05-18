@@ -1,7 +1,7 @@
 'use strict'
 import React from 'react'
 import { connect } from 'react-redux'
-class workplace extends React.Component{
+class quote extends React.Component{
     constructor(props) {
         super(props)
         this.state = {
@@ -10,7 +10,8 @@ class workplace extends React.Component{
             {category:'category', name:'name1', price:'price'},
             {category:'category', name:'name2', price:'price'},
             {category:'category', name:'name3', price:'price'}
-          ]
+          ],
+          summary: 0
         }
     }
 
@@ -18,7 +19,7 @@ class workplace extends React.Component{
     var me = this
     var lang = me.props.lang.keys
     return (
-      <div className='estimation'>
+      <div className='quote'>
         <div></div>
         <div className='row header'>
           <div className='add' onClick={e=>{
@@ -27,6 +28,13 @@ class workplace extends React.Component{
           <input className='new-todo' placeholder='What needs to be done?'/>
         </div>
         <section className='main'><ul>
+          <li className='row title'>
+            <div>{lang.name}</div>
+            <div>{lang.price}</div>
+            <div>{lang.quantity}</div>
+            <div>{lang.discount}</div>
+            <div>{lang.amount}</div>
+          </li>
           {
             me.state.items.map((c,i)=>{
               return( 
@@ -42,9 +50,11 @@ class workplace extends React.Component{
             })
           }
         </ul></section>
-        <div className='footer'></div>
+        <div className='footer'>
+          <div>{me.state.summary}</div><div>{lang.summary}:</div>
+        </div>
       </div>
     )
   }
 }
-export default connect(any => any)(workplace)
+export default connect(any => any)(quote)

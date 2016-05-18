@@ -18,8 +18,7 @@ class header extends base{
     return (
       <div className='header-area'>
         <button onClick={e=>{
-          me.context.router.push('/admin')
-        }}>{lang.admin}</button>
+        }}>{lang.logout}</button>
         <button onClick={e=>{
           me.props.dispatch(change_lang('en'))
         }}>{lang.english}</button>
@@ -27,7 +26,11 @@ class header extends base{
           me.props.dispatch(change_lang('ch'))
         }}>{lang.chinese}</button>
         <button onClick={e=>{
-        }}>{lang.logout}</button>
+          me.context.router.push('/admin')
+        }}>{lang.admin}</button>
+        <button onClick={e=>{
+          me.context.router.push('/quote')
+        }}>{lang.quote}</button>
       </div>
     )
   }

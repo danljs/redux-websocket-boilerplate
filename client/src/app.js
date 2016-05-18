@@ -13,7 +13,7 @@ import rootReducer from './reducers'
 import Header from './components/header'
 import login from './components/login'
 import dashboard from './components/dashboard'
-import workplace from './components/workplace'
+import quote from './components/quote'
 import admin from './components/admin'
 
 import socket from './util/admin_ws'
@@ -41,7 +41,7 @@ render(
           <IndexRoute component={login} />
           <Route path="login" component={login}/>
           <Route path="dashboard" component={dashboard}/>
-          <Route path="workplace" component={workplace}/>
+          <Route path="quote" component={quote}/>
           <Route path="admin" component={admin}/>
         </Route>
       </Router>
