@@ -2,22 +2,36 @@
 import React from 'react'
 import { connect } from 'react-redux'
 class quote extends React.Component{
-    constructor(props) {
-        super(props)
-        this.state = {
-          items: 
-          [
-            {category:'category', name:'name1', price:'price'},
-            {category:'category', name:'name2', price:'price'},
-            {category:'category', name:'name3', price:'price'}
-          ],
-          summary: 0
-        }
+  constructor(props) {
+    super(props)
+    this.state = {
+      items: 
+      [
+        {category:'category', name:'name1', price:'price'},
+        {category:'category', name:'name2', price:'price'},
+        {category:'category', name:'name3', price:'price'}
+      ],
+      category: {},
+      summary: 0
     }
+  }
+
+  componentDidMount(){
+    var me = this
+    var xmlhttp = new XMLHttpRequest()
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+        me.setState({category: JSON.parse(xmlhttp.response).category})
+      }
+    }
+    xmlhttp.open('GET', 'data/data.json', true)
+    xmlhttp.send()
+  }
 
   render() {
     var me = this
     var lang = me.props.lang.keys
+    console.log(me.state.category)
     return (
       <div className='quote'>
         <div></div>
