@@ -15,5 +15,6 @@ module.exports = {
 	quantity: '数量',
 	discount: '折扣',
 	amount: '金额',
-	summary: '总额'
+	summary: '总额',
+	item_name: 'item_name_c'
 }

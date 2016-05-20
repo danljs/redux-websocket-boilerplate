@@ -1,113 +1,123 @@
 {  
    "success":true,
-   "company":"Leisheng",
+   "item_name_e":"Leisheng",
+   "item_name_c":"雷声",
    "category":[  
       {
-         "name":"Handle",
+         "item_name_e":"Handle",
+         "item_name_c":"手柄",
          "sub":[
             {
-               "name":"Wood",
+               "item_name_e":"Wood",
+               "item_name_c":"木柄",
                "img":"../img/handle_wood.png",
                "price":2.15
             },
             {
-               "name":"Plastic",
+               "item_name_e":"Plastic",
+               "item_name_c":"塑料柄",
                "img":"../img/handle_plastic.png",
                "price":1.35
             }
          ]
       },
       {
-         "name":"Head",
+         "item_name_e":"Head",
+         "item_name_c":"刀头",
          "sub":[
             {
-               "name":"40Cr",
+               "item_name_e":"40Cr",
+               "item_name_c":"40Cr",
                "sub":[
-                  {"name":"Normal","price":2.15},
-                  {"name":"Hole","price":2.15},
-                  {"name":"American","price":2.15},
-                  {"name":"Semicircle","price":2.15}
+                  {"item_name_e":"Normal","item_name_c":"常规","price":2.15},
+                  {"item_name_e":"Hole","item_name_c":"穿心","price":2.15},
+                  {"item_name_e":"American","item_name_c":"美式","price":2.15},
+                  {"item_name_e":"Semicircle","item_name_c":"半圆","price":2.15}
                ]
             },
             {
-               "name":"60Cr-V",
+               "item_name_e":"60Cr-V",
+               "item_name_c":"60Cr-V",
                "price":1.35,
                "sub":[
-                  {"name":"Normal","price":2.15},
-                  {"name":"Hole","price":2.15},
-                  {"name":"American","price":2.15},
-                  {"name":"Semicircle","price":2.15}
+                  {"item_name_e":"Normal","item_name_c":"常规","price":2.15},
+                  {"item_name_e":"Hole","item_name_c":"穿心","price":2.15},
+                  {"item_name_e":"American","item_name_c":"美式","price":2.15},
+                  {"item_name_e":"Semicircle","item_name_c":"半圆","price":2.15}
                ]
             },
             {
-               "name":"100Cr-V",
+               "item_name_e":"100Cr-V",
+               "item_name_c":"100Cr-V",
                "price":1.35,
                "sub":[
-                  {"name":"Normal","price":2.15},
-                  {"name":"Hole","price":2.15},
-                  {"name":"American","price":2.15},
-                  {"name":"Semicircle","price":2.15}
+                  {"item_name_e":"Normal","item_name_c":"常规","price":2.15},
+                  {"item_name_e":"Hole","item_name_c":"穿心","price":2.15},
+                  {"item_name_e":"American","item_name_c":"美式","price":2.15},
+                  {"item_name_e":"Semicircle","item_name_c":"半圆","price":2.15}
                ]
             }
          ]
       },
       {
-         "name":"Parts",
+         "item_name_e":"Parts",
+         "item_name_c":"手柄配件",
          "sub":[
             {
-               "name":"Rivet",
+               "item_name_e":"Rivet",
+               "item_name_c":"铆钉",
                "price":2.15
             },
             {
-               "name":"cramp",
+               "item_name_e":"cramp",
+               "item_name_c":"铁箍",
                "price":1.35
             },
             {
-               "name":"copper",
+               "item_name_e":"copper",
+               "item_name_c":"铜箍",
                "price":1.35
             }
          ]
       },
       {
-         "name":"Casing",
+         "item_name_e":"Casing",
+         "item_name_c":"包装",
          "sub":[
             {
-               "name":"Single",
+               "item_name_e":"Single",
+               "item_name_c":"单品",
                "sub":[
-                  {"name":"Tag","price":2.15},
-                  {"name":"Card","price":2.15},
-                  {"name":"Double","price":2.15},
-                  {"name":"Single","price":2.15},
-                  {"name":"Bulk","price":2.15}
+                  {"item_name_e":"Tag","item_name_c":"吊牌","price":2.15},
+                  {"item_name_e":"Card","item_name_c":"插卡","price":2.15},
+                  {"item_name_e":"Double","item_name_c":"双泡","price":2.15},
+                  {"item_name_e":"Single","item_name_c":"单泡","price":2.15},
+                  {"item_name_e":"Bulk","item_name_c":"散装","price":2.15}
                ]
             },
             {
-               "name":"Suit",
+               "item_name_e":"Suit",
+               "item_name_c":"套装",
                "sub":[
-                  {"name":"Tag","price":2.15},
-                  {"name":"Card","price":2.15},
-                  {"name":"Double","price":2.15},
-                  {"name":"Guadai","price":2.15},
-                  {"name":"Wood","price":2.15},
-                  {"name":"Color","price":2.15},
-                  {"name":"Black","price":2.15},
-                  {"name":"Blow","price":2.15},
-                  {"name":"Roll","price":2.15}
+                  {"item_name_e":"Tag","item_name_c":"吊牌","price":2.15},
+                  {"item_name_e":"Card","item_name_c":"插卡","price":2.15},
+                  {"item_name_e":"Double","item_name_c":"双泡","price":2.15},
+                  {"item_name_e":"Hang","item_name_c":"挂袋","price":2.15},
+                  {"item_name_e":"Wood","item_name_c":"木盒","price":2.15},
+                  {"item_name_e":"Color","item_name_c":"彩盒","price":2.15},
+                  {"item_name_e":"Black","item_name_c":"黑包","price":2.15},
+                  {"item_name_e":"Blow","item_name_c":"吹塑","price":2.15},
+                  {"item_name_e":"Roll","item_name_c":"卷袋","price":2.15}
                ]
             }
          ]
       },
       {
-         "name":"Case",
+         "item_name_e":"Case",
+         "item_name_c":"纸箱",
          "sub":[
-            {
-               "name":"Thin",
-               "price":2.15
-            },
-            {
-               "name":"Thick",
-               "price":1.35
-            }
+            {"item_name_e":"Thin","item_name_c":"薄","price":2.15},
+            {"item_name_e":"Thick","item_name_c":"厚","price":1.35}
          ]
       }
    ]

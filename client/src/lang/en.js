@@ -15,5 +15,6 @@ module.exports = {
 	quantity: 'Quantity',
 	discount: 'Discount',
 	amount: 'Amount',
-	summary: 'Summary'
+	summary: 'Summary',
+	item_name: 'item_name_e'
 }

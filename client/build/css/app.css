@@ -183,7 +183,16 @@
 }
 .quote .main ul li .delete {
   float: right;
+  margin: 0px 0px 0px 20px;
+  width: 40px;
+  height: 40px;
+  background: url(../icon/delete.png) no-repeat;
+  background-size: 100% auto;
   cursor: pointer;
+  opacity: 0.8;
+}
+.quote .main ul li .delete:hover {
+  opacity: 1;
 }
 .quote .footer {
   color: #777;
