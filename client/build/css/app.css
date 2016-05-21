@@ -94,6 +94,21 @@
   font-weight: inherit;
   line-height: 1.4em;
 }
+.items-with .item0 {
+  width: 20%;
+}
+.items-with .item1 {
+  width: 20%;
+}
+.items-with .item2 {
+  width: 20%;
+}
+.items-with .item3 {
+  width: 20%;
+}
+.items-with .item4 {
+  width: 20%;
+}
 .quote {
   font-size: 24px;
   font-family: inherit;
@@ -171,19 +186,54 @@
   padding: 0;
   list-style: none;
 }
+.quote .main ul .title div {
+  border: 1px solid #ededed;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+}
 .quote .main ul li {
   position: relative;
   font-size: 24px;
   border-bottom: 1px solid #ededed;
-  padding: 0px 20px 0px 20px;
+  padding: 0px 80px 0px 20px;
+  margin: 0px -10px 0px -10px;
+}
+.quote .main ul li:first-child {
+  background-color: #30ACDA;
+  color: #fff;
 }
 .quote .main ul li div {
   float: left;
-  margin: 0px 20px 0px 0px;
+  text-align: center;
+  height: 40px;
+}
+.quote .main ul li select {
+  width: 100%;
+  height: 100%;
+  border-right-color: #ededed;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+}
+.quote .main ul li .item0 {
+  width: 20%;
+}
+.quote .main ul li .item1 {
+  width: 20%;
+}
+.quote .main ul li .item2 {
+  width: 20%;
+}
+.quote .main ul li .item3 {
+  width: 20%;
+}
+.quote .main ul li .item4 {
+  width: 20%;
 }
 .quote .main ul li .delete {
-  float: right;
-  margin: 0px 0px 0px 20px;
+  position: absolute;
+  right: 20px;
   width: 40px;
   height: 40px;
   background: url(../icon/delete.png) no-repeat;

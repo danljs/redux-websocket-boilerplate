@@ -11,7 +11,10 @@ import (
 func echoHandler(ws *websocket.Conn) {
 	// io.Copy(ws, ws)
 	msg := make([]byte, 512)
+	i := 0
 	for {
+		i++
+		log.Printf("Loop: %d\n", i)
 		n, err := ws.Read(msg)
 		if err != nil {
 			log.Fatal(err)

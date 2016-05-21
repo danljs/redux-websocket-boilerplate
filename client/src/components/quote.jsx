@@ -47,24 +47,23 @@ class quote extends React.Component{
           <li className='row title'>
           { 
             me.state.category.map((c,i)=>c[lang.item_name])
-            .map((c,i)=><div key={i}>{c}</div>)
+            .map((c,i)=><div key={i} className={'item' + i}>{c}</div>)
           }
           </li>
           {
             me.state.items.map((c,i)=>
-              <li className='row' key={i}>
-                <QuoteItem category={me.state.category} 
-                  sum={value=>{
-                    var items = me.state.items
-                    items[i].price = value
-                    me.setState({items: items})
-                  }}/>
-                <div className='delete' onClick={e=>{
+              <QuoteItem key={i} category={me.state.category} 
+                sum={value=>{
+                  var items = me.state.items
+                  items[i].price = value
+                  me.setState({items: items})
+                }}
+                remove={e=>{
                   let items = [...me.state.items]
                   items.splice(i,1)
                   me.setState({items: items})
-                }}></div>
-              </li>
+                }}
+              />
             )
           }
         </ul></section>

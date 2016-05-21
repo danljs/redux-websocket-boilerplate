@@ -15,17 +15,18 @@ class quote_item extends React.Component{
     var me = this
     var lang = me.props.lang.keys
     return (
-      <div className='quote-item'>
+      <li className='row'>
       {
         me.props.category.map((c,i)=>
-          <select key={i} onChange={e=>{
-            me.props.sum(5)
-          }}>
+          <div key={i} className={'item' + i}>
+          <select onChange={e=>{me.props.sum(5)}}>
             {c.sub.map((s,j)=><option key={j}>{s[lang.item_name]}</option>)}
           </select>
+          </div>
         )
       }
-      </div>
+       <div className='delete' onClick={e=>{me.props.remove()}}></div>
+      </li>
     )
   }
 }
