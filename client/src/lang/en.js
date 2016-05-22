@@ -10,10 +10,6 @@ module.exports = {
 	logout: 'Logout',
 	admin: 'Admin',
 	quote: 'Quote',
-	name: 'Name',
-	price: 'Price',
-	quantity: 'Quantity',
-	discount: 'Discount',
 	amount: 'Amount',
 	summary: 'Summary',
 	item_name: 'item_name_e'

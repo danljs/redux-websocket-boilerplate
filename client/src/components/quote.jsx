@@ -14,7 +14,7 @@ class quote extends React.Component{
         {category:'category', name:'name3', price:30}
       ],
       category: [],
-      summary: 0
+      summary: 0.00
     }
   }
 
@@ -42,6 +42,9 @@ class quote extends React.Component{
             me.setState({items: [...me.state.items,
               {category:'category', name:'new', price:10}]})}} />
           <input className='new-todo' placeholder='What needs to be done?'/>
+          <div className='print' onClick={e=>{
+            me.setState({items: [...me.state.items,
+              {category:'category', name:'new', price:10}]})}} />
         </div>
         <section className='main'><ul>
           <li className='row title'>
@@ -49,6 +52,7 @@ class quote extends React.Component{
             me.state.category.map((c,i)=>c[lang.item_name])
             .map((c,i)=><div key={i} className={'item' + i}>{c}</div>)
           }
+          <div className='amount'>{lang.amount}</div>
           </li>
           {
             me.state.items.map((c,i)=>
@@ -68,7 +72,7 @@ class quote extends React.Component{
           }
         </ul></section>
         <div className='footer'>
-          <div>{me.state.items.reduce((p,c) => p + c.price, 0)}</div>
+          <div>{parseFloat(Math.round(me.state.items.reduce((p,c) => p + c.price, 0) * 100) / 100).toFixed(2)}</div>
           <div>{lang.summary}:</div>
         </div>
       </div>

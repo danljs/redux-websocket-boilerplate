@@ -5,6 +5,7 @@ class quote_item extends React.Component{
   constructor(props) {
     super(props)
     this.state = {
+      amount: 0
     }
   }
 
@@ -25,7 +26,8 @@ class quote_item extends React.Component{
           </div>
         )
       }
-       <div className='delete' onClick={e=>{me.props.remove()}}></div>
+      <div className='amount'>{parseFloat(Math.round(me.state.amount * 100) / 100).toFixed(2)}</div>
+      <div className='delete' onClick={e=>{me.props.remove()}}></div>
       </li>
     )
   }
