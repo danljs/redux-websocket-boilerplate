@@ -41,7 +41,7 @@ class quote extends React.Component{
           <div className='add' onClick={e=>{
             me.setState({items: [...me.state.items,
               {category:'category', name:'new', price:10}]})}} />
-          <input className='new-todo' placeholder='What needs to be done?'/>
+          <input className='new-todo' placeholder={lang.what}/>
           <div className='print' onClick={e=>{
             me.setState({items: [...me.state.items,
               {category:'category', name:'new', price:10}]})}} />

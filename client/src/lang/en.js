@@ -12,5 +12,6 @@ module.exports = {
 	quote: 'Quote',
 	amount: 'Amount',
 	summary: 'Summary',
-	item_name: 'item_name_e'
+	item_name: 'item_name_e',
+	what:'What needs to be done?'
 }

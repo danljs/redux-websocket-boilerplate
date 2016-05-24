@@ -12,5 +12,6 @@ module.exports = {
 	quote: '报价',
 	amount: '金额',
 	summary: '总额',
-	item_name: 'item_name_c'
+	item_name: 'item_name_c',
+	what:'您需要什么?'
 }
