@@ -10,6 +10,7 @@ module.exports = {
 	logout: '注销',
 	admin: '管理',
 	quote: '报价',
+	quatity: '数量',
 	amount: '金额',
 	summary: '总额',
 	item_name: 'item_name_c',

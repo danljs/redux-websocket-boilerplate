@@ -107,6 +107,7 @@
   padding: 10px 10px 10px 10px;
   position: relative;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  min-width: 680px;
 }
 .quote h1 {
   position: absolute;
@@ -156,7 +157,7 @@
   position: relative;
   font-size: 24px;
   border-bottom: 1px solid #ededed;
-  padding: 0px 160px 0px 20px;
+  padding: 0px 250px 0px 20px;
   margin: 0px -10px 0px -10px;
 }
 .quote .main ul li:first-child {
@@ -185,8 +186,27 @@
   border-bottom-width: 0px;
   border-left-width: 0px;
 }
+.quote .main ul li select option {
+  background-image: url(../icon/delete.png) no-repeat;
+}
 .quote .main ul li div[class^="item"] {
   width: 20%;
+}
+.quote .main ul li .quatity {
+  position: absolute;
+  right: 160px;
+  width: 90px;
+  border: 1px solid #ededed;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+}
+.quote .main ul li .quatity input {
+  padding: 0px 5px 0px 5px;
+  text-align: right;
+  height: 100%;
+  width: 100%;
+  border: none;
 }
 .quote .main ul li .amount {
   position: absolute;

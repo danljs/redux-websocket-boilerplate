@@ -1,7 +1,7 @@
 'use strict'
 import React from 'react'
 import { connect } from 'react-redux'
-import QuoteItem from './quote_item'
+import QuoteRow from './quote_row'
 
 class quote extends React.Component{
   constructor(props) {
@@ -34,6 +34,7 @@ class quote extends React.Component{
   render() {
     var me = this
     var lang = me.props.lang.keys
+    console.log(me.state.items)
     return (
       <div className='quote'>
         <div></div>
@@ -52,12 +53,14 @@ class quote extends React.Component{
             me.state.category.map((c,i)=>c[lang.item_name])
             .map((c,i)=><div key={i} className={'item' + i}>{c}</div>)
           }
+          <div className='quatity'>{lang.quatity}</div>
           <div className='amount'>{lang.amount}</div>
           </li>
           {
             me.state.items.map((c,i)=>
-              <QuoteItem key={i} category={me.state.category} 
+              <QuoteRow key={i} category={me.state.category} 
                 sum={value=>{
+                  console.log(value)
                   var items = me.state.items
                   items[i].price = value
                   me.setState({items: items})

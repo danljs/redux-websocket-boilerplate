@@ -15,6 +15,7 @@
 	position: relative;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
 	            0 25px 50px 0 rgba(0, 0, 0, 0.1);
+	min-width: 680px;
 	h1 {
 		position: absolute;
 		top: -155px;
@@ -63,7 +64,7 @@
 				position: relative;
 				font-size: 24px;
 				border-bottom: 1px solid #ededed;
-				padding: 0px 160px 0px 20px;
+				padding: 0px 250px 0px 20px;
 				margin: 0px -10px 0px -10px;
 				&:first-child{
 					background-color: #30ACDA;
@@ -93,8 +94,27 @@
 					border-top-width: 0px;
 					border-bottom-width: 0px;
 					border-left-width: 0px;
+					option{
+						background-image: url(../icon/delete.png) no-repeat;
+					}
 				}
 				.items-with;
+				.quatity{
+					position: absolute;
+					right:160px;
+					width: 90px;
+					border: 1px solid #ededed;
+					border-top-width: 0px;
+					border-bottom-width: 0px;
+					border-left-width: 0px;
+					input{
+						padding: 0px 5px 0px 5px;
+						text-align: right;
+						height: 100%;
+						width: 100%;
+						border: none;
+					}
+				}
 				.amount{
 					position: absolute;
 					right:70px;
