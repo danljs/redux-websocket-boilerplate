@@ -17,7 +17,7 @@ class header extends base{
     var lang = me.props.lang.keys
     return (
       <div className='header-area'>
-      {/*}  <button onClick={e=>{
+        <button onClick={e=>{
         }}>{lang.logout}</button>
         <button onClick={e=>{
           me.props.dispatch(change_lang('en'))
@@ -31,7 +31,7 @@ class header extends base{
         <button onClick={e=>{
           me.context.router.push('/quote')
         }}>{lang.quote}</button>
-      */}</div>
+      </div>
     )
   }
 }

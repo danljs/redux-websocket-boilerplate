@@ -14,5 +14,6 @@ module.exports = {
 	amount: 'Amount',
 	summary: 'Summary',
 	item_name: 'item_name_e',
-	what:'What needs to be done?'
+	what: 'What needs to be done?',
+	select: 'Select...'
 }

@@ -15,7 +15,8 @@ class quote_cell extends React.Component{
     //http://jsfiddle.net/chirayu45/yxkut/16/
     
     return (
-      <select onChange={me.props.change}>
+      <select defaultValue='select' onChange={me.props.change}>
+        <option value='select' disabled='disabled'>{lang.select}</option>
         {
           subs.map((c,i)=>
             !!!c.sub?

@@ -9,9 +9,7 @@ class quote extends React.Component{
     this.state = {
       items: 
       [
-        {category:'category', name:'name1', price:10},
-        {category:'category', name:'name2', price:20},
-        {category:'category', name:'name3', price:30}
+        {category:'category', name:'name1', price:0}
       ],
       category: [],
       summary: 0.00
@@ -34,18 +32,17 @@ class quote extends React.Component{
   render() {
     var me = this
     var lang = me.props.lang.keys
-    console.log(me.state.items)
     return (
       <div className='quote'>
         <div></div>
         <div className='row header'>
           <div className='add' onClick={e=>{
             me.setState({items: [...me.state.items,
-              {category:'category', name:'new', price:10}]})}} />
+              {category:'category', name:'new', price:0}]})}} />
           <input className='new-todo' placeholder={lang.what}/>
           <div className='print' onClick={e=>{
             me.setState({items: [...me.state.items,
-              {category:'category', name:'new', price:10}]})}} />
+              {category:'category', name:'new', price:0}]})}} />
         </div>
         <section className='main'><ul>
           <li className='row title'>
@@ -60,7 +57,6 @@ class quote extends React.Component{
             me.state.items.map((c,i)=>
               <QuoteRow key={i} category={me.state.category} 
                 sum={value=>{
-                  console.log(value)
                   var items = me.state.items
                   items[i].price = value
                   me.setState({items: items})
@@ -75,7 +71,11 @@ class quote extends React.Component{
           }
         </ul></section>
         <div className='footer'>
-          <div>{parseFloat(Math.round(me.state.items.reduce((p,c) => p + c.price, 0) * 100) / 100).toFixed(2)}</div>
+          <div>{
+            parseFloat(Math.round(me.state.items
+            .map((c,i)=>!!!c.price ? 0 : parseFloat(c.price))
+            .reduce((p,c) => p + c, 0) * 100) / 100).toFixed(2)
+          }</div>
           <div>{lang.summary}:</div>
         </div>
       </div>

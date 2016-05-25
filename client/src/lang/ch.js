@@ -14,5 +14,6 @@ module.exports = {
 	amount: '金额',
 	summary: '总额',
 	item_name: 'item_name_c',
-	what:'您需要什么?'
+	what:'您需要什么?',
+	select: '选择...'
 }
