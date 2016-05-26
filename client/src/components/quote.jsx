@@ -2,6 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import QuoteRow from './quote_row'
+import Report from './report'
 
 class quote extends React.Component{
   constructor(props) {
@@ -41,8 +42,8 @@ class quote extends React.Component{
               {category:'category', name:'new', price:0}]})}} />
           <input className='new-todo' placeholder={lang.what}/>
           <div className='print' onClick={e=>{
-            me.setState({items: [...me.state.items,
-              {category:'category', name:'new', price:0}]})}} />
+            Report.print()
+          }}/>
         </div>
         <section className='main'><ul>
           <li className='row title'>
