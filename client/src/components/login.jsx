@@ -13,8 +13,7 @@ class login extends base{
   }
   
   render() {
-    var me = this
-    var lang = me.props.lang.keys
+    var lang = this.props.lang.keys
     return (
       <div className='login'>
         <form className="form-horizontal">
@@ -41,14 +40,13 @@ class login extends base{
           </div>
           <div className="form-group">
             <div className="col-sm-offset-2 col-sm-10">
-              <button type="submit" className="btn btn-default" onClick={e => {
-                if (!me.refs.email.checkValidity()||!me.refs.password.checkValidity()) {
+              <button type="submit" className="btn btn-default" onClick={e=>{
+                if (!this.refs.email.checkValidity()||!this.refs.password.checkValidity()) {
                   return
                 }
                 e.preventDefault()
-                console.log(me)
-                me.props.dispatch(post_message({author:'message',body:'login'}))
-                me.context.router.push('/dashboard')
+                this.props.dispatch(post_message({author:'message',body:'login'}))
+                this.context.router.push('/dashboard')
               }}>{lang.sign_in}</button>
             </div>
           </div>

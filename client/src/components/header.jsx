@@ -13,23 +13,22 @@ class header extends base{
   componentWillReceiveProps(nextProps){
   }
   render() {
-    var me = this
-    var lang = me.props.lang.keys
+    var lang = this.props.lang.keys
     return (
       <div className='header-area'>
         <button onClick={e=>{
         }}>{lang.logout}</button>
         <button onClick={e=>{
-          me.props.dispatch(change_lang('en'))
+          this.props.dispatch(change_lang('en'))
         }}>{lang.english}</button>
         <button onClick={e=>{
-          me.props.dispatch(change_lang('ch'))
+          this.props.dispatch(change_lang('ch'))
         }}>{lang.chinese}</button>
         <button onClick={e=>{
-          me.context.router.push('/admin')
+          this.context.router.push('/admin')
         }}>{lang.admin}</button>
         <button onClick={e=>{
-          me.context.router.push('/quote')
+          this.context.router.push('/quote')
         }}>{lang.quote}</button>
       </div>
     )
