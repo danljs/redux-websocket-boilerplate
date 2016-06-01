@@ -16,20 +16,20 @@ class header extends base{
     var lang = this.props.lang.keys
     return (
       <div className='header-area'>
-        <button onClick={e=>{
-        }}>{lang.logout}</button>
-        <button onClick={e=>{
+        <a onClick={e=>{
+        }}>{lang.logout}</a>
+        <a onClick={e=>{
           this.props.dispatch(change_lang('en'))
-        }}>{lang.english}</button>
-        <button onClick={e=>{
+        }}>{lang.english}</a>
+        <a onClick={e=>{
           this.props.dispatch(change_lang('ch'))
-        }}>{lang.chinese}</button>
-        <button onClick={e=>{
+        }}>{lang.chinese}</a>
+        <a onClick={e=>{
           this.context.router.push('/admin')
-        }}>{lang.admin}</button>
-        <button onClick={e=>{
+        }}>{lang.admin}</a>
+        <a onClick={e=>{
           this.context.router.push('/quote')
-        }}>{lang.quote}</button>
+        }}>{lang.quote}</a>
       </div>
     )
   }

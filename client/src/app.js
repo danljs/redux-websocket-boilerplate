@@ -24,8 +24,7 @@ socket(store)
 class app extends React.Component{
 	render() {
 		return (
-      <div>
-        <Header/>
+      <div>{/*<Header/>*/}
         <div>
           {this.props.children}
         </div>

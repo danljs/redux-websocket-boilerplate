@@ -10,7 +10,7 @@ class quote extends React.Component{
     this.state = {
       items: 
       [
-        {category:'category', name:'name1', price:0}
+        {price:0}
       ],
       category: [],
       summary: 0.00
@@ -18,12 +18,10 @@ class quote extends React.Component{
   }
 
   componentDidMount(){
-    var me = this
-    var lang = me.props.lang.keys
-    var xmlhttp = new XMLHttpRequest()
-    xmlhttp.onreadystatechange = function() {
+    let xmlhttp = new XMLHttpRequest()
+    xmlhttp.onreadystatechange = ()=>{
       if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-        me.setState({category: JSON.parse(xmlhttp.response).category})
+        this.setState({category: JSON.parse(xmlhttp.response).category})
       }
     }
     xmlhttp.open('GET', 'data/data.json', true)
@@ -31,15 +29,14 @@ class quote extends React.Component{
   }
 
   render() {
-    var me = this
-    var lang = me.props.lang.keys
+    let lang = this.props.lang.keys
     return (
       <div className='quote'>
         <div></div>
         <div className='row header'>
           <div className='add' onClick={e=>{
-            me.setState({items: [...me.state.items,
-              {category:'category', name:'new', price:0}]})}} />
+            this.setState({items: [...this.state.items, {}]})
+          }}/>
           <input className='new-todo' placeholder={lang.what}/>
           <div className='print' onClick={e=>{
             Report.print()
@@ -48,24 +45,24 @@ class quote extends React.Component{
         <section className='main'><ul>
           <li className='row title'>
           { 
-            me.state.category.map((c,i)=>c[lang.item_name])
+            this.state.category.map((c,i)=>c[lang.item_name])
             .map((c,i)=><div key={i} className={'item' + i}>{c}</div>)
           }
           <div className='quatity'>{lang.quatity}</div>
           <div className='amount'>{lang.amount}</div>
           </li>
           {
-            me.state.items.map((c,i)=>
-              <QuoteRow key={i} category={me.state.category} 
+            this.state.items.map((c,i)=>
+              <QuoteRow key={i} category={this.state.category} 
                 sum={value=>{
-                  var items = me.state.items
-                  items[i].price = value
-                  me.setState({items: items})
+                  let items = this.state.items
+                  items[i].price = value.amount
+                  this.setState({items: items})
                 }}
                 remove={e=>{
-                  let items = [...me.state.items]
+                  let items = [...this.state.items]
                   items.splice(i,1)
-                  me.setState({items: items})
+                  this.setState({items: items})
                 }}
               />
             )
@@ -73,7 +70,7 @@ class quote extends React.Component{
         </ul></section>
         <div className='footer'>
           <div>{
-            parseFloat(Math.round(me.state.items
+            parseFloat(Math.round(this.state.items
             .map((c,i)=>!!!c.price ? 0 : parseFloat(c.price))
             .reduce((p,c) => p + c, 0) * 100) / 100).toFixed(2)
           }</div>
