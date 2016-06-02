@@ -56,7 +56,7 @@ class dashboard extends base{
     var weeks = this.build_weeks(this.state.month_first, this.state.month_last)
     return (
       <div>
-        <div>Dashboard</div>
+        <div>Dashboardd</div>
         <div className="calendar">
           <div className="month">
             <div className="week">

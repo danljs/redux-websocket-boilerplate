@@ -10,7 +10,7 @@ class quote extends React.Component{
     this.state = {
       items: 
       [
-        {price:0}
+        {amount:0}
       ],
       category: [],
       summary: 0.00
@@ -30,6 +30,7 @@ class quote extends React.Component{
 
   render() {
     let lang = this.props.lang.keys
+    console.log(this.state.items)
     return (
       <div className='quote'>
         <div></div>
@@ -54,9 +55,9 @@ class quote extends React.Component{
           {
             this.state.items.map((c,i)=>
               <QuoteRow key={i} category={this.state.category} 
-                sum={value=>{
+                onChange={value=>{
                   let items = this.state.items
-                  items[i].price = value.amount
+                  items[i] = value
                   this.setState({items: items})
                 }}
                 remove={e=>{
@@ -71,7 +72,7 @@ class quote extends React.Component{
         <div className='footer'>
           <div>{
             parseFloat(Math.round(this.state.items
-            .map((c,i)=>!!!c.price ? 0 : parseFloat(c.price))
+            .map((c,i)=>!!!c.amount ? 0 : parseFloat(c.amount))
             .reduce((p,c) => p + c, 0) * 100) / 100).toFixed(2)
           }</div>
           <div>{lang.summary}:</div>

@@ -15,7 +15,6 @@ class quote_cell extends React.Component{
     
     return (
       <select defaultValue='select' onChange={e=>{
-        // console.log(e.target.value)
         let value = e.target.value.split(':')
         this.props.change({price : value[0], item_name : value[1]})
       }}>
