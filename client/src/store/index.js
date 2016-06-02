@@ -1,7 +1,12 @@
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+
+import rootReducer from '../reducers'
 import {connecting,connected,receive_message,POST_MESSAGE} from '../actions/index'
 
-let websocket
-export default store => {
+export default (()=>{
+    let websocket
+    const store = createStore(rootReducer, {}, applyMiddleware(thunk))
     store.subscribe(() => {
         const { session, last_action } = store.getState()
         switch (last_action.type) {
@@ -19,4 +24,5 @@ export default store => {
     websocket.onopen = () => {store.dispatch(connected())}
     websocket.onclose = () => {console.log('websocket.onclose')}
     websocket.onerror = () => {console.log('websocket.onerror')}
-}
+    return store
+}())

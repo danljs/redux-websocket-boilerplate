@@ -1,4 +1,4 @@
-export default ((){
+export default (()=>{
   function getData(rowCount) {
     rowCount = rowCount || 4;
     var data = [];
