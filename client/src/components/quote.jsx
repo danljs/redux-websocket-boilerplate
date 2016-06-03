@@ -30,38 +30,36 @@ class quote extends React.Component{
 
   render() {
     let lang = this.props.lang.keys
-    console.log(this.state.items)
+    let titles = this.state.category.map((c,i)=>c[lang.item_name])
+    let items = this.state.items
     return (
       <div className='quote'>
         <div></div>
         <div className='row header'>
           <div className='add' onClick={e=>{
-            this.setState({items: [...this.state.items, {}]})
+            this.setState({items: [...items, {}]})
           }}/>
           <input className='new-todo' placeholder={lang.what}/>
           <div className='print' onClick={e=>{
-            Report.print()
+            Report.print([...titles, lang.quatity, lang.amount],)
           }}/>
         </div>
         <section className='main'><ul>
           <li className='row title'>
           { 
-            this.state.category.map((c,i)=>c[lang.item_name])
-            .map((c,i)=><div key={i} className={'item' + i}>{c}</div>)
+            titles.map((c,i)=><div key={i} className={'item' + i}>{c}</div>)
           }
           <div className='quatity'>{lang.quatity}</div>
           <div className='amount'>{lang.amount}</div>
           </li>
           {
-            this.state.items.map((c,i)=>
+            items.map((c,i)=>
               <QuoteRow key={i} category={this.state.category} 
                 onChange={value=>{
-                  let items = this.state.items
                   items[i] = value
                   this.setState({items: items})
                 }}
                 remove={e=>{
-                  let items = [...this.state.items]
                   items.splice(i,1)
                   this.setState({items: items})
                 }}
@@ -71,7 +69,7 @@ class quote extends React.Component{
         </ul></section>
         <div className='footer'>
           <div>{
-            parseFloat(Math.round(this.state.items
+            parseFloat(Math.round(items
             .map((c,i)=>!!!c.amount ? 0 : parseFloat(c.amount))
             .reduce((p,c) => p + c, 0) * 100) / 100).toFixed(2)
           }</div>
