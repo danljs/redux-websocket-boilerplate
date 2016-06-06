@@ -32,6 +32,8 @@ class quote extends React.Component{
     let lang = this.props.lang.keys
     let titles = this.state.category.map((c,i)=>c[lang.item_name])
     let items = this.state.items
+    //console.log(items)
+    //console.log(titles)
     return (
       <div className='quote'>
         <div></div>

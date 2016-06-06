@@ -12,6 +12,16 @@ class quote_row extends React.Component{
       amount: 0
     }
   }
+  componentWillMount() {
+    // console.log('componentWillMount')
+    // console.log(this.props.category)
+  }
+  componentWillReceiveProps (nextProps){
+    // console.log('componentWillReceiveProps')
+    // console.log(nextProps.category)
+  }
+  componentDidMount(){
+  }
   update_row(items, quatity){
     let row = {
       items: items,
@@ -21,10 +31,13 @@ class quote_row extends React.Component{
               .reduce((p,c)=>p + c, 0) * 100) / 100).toFixed(2)
     }
     this.setState(row)
+    console.log(row) 
     this.props.onChange(row)
   }
   render() {
+    // console.log('render')
     let lang = this.props.lang.keys
+    // console.log(this.props)
     return (
       <li className='row'>
       {
