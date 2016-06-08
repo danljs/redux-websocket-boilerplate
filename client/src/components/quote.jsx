@@ -32,8 +32,6 @@ class quote extends React.Component{
     let lang = this.props.lang.keys
     let titles = this.state.category.map((c,i)=>c[lang.item_name])
     let items = this.state.items
-    //console.log(items)
-    //console.log(titles)
     return (
       <div className='quote'>
         <div></div>
@@ -43,7 +41,9 @@ class quote extends React.Component{
           }}/>
           <input className='new-todo' placeholder={lang.what}/>
           <div className='print' onClick={e=>{
-            Report.print([...titles, lang.quatity, lang.amount],)
+            console.log(this.state.items)
+            console.log(titles)
+            Report.print([...titles, lang.quatity, lang.amount],[...this.state.items])
           }}/>
         </div>
         <section className='main'><ul>
