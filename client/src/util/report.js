@@ -20,7 +20,18 @@ export default (()=>{
     return data;
   }
   return{
-    function print(){
+    // function print1(){
+    //    print([
+    //       {title: 'date', width: 70},
+    //       {title: 'start', width: 70},
+    //       {title: 'name', width: 100},
+    //       {title: 'email', width: 100},
+    //       {title: 'phone', width: 90},
+    //       {title: 'comment', width: 150}
+    //     ],getData(140));
+    // },
+    print: function (titles, data) {
+
       var doc = new jsPDF('p', 'pt', 'letter');
       var pageCount = 0 ;
       var totalPagesExp = "{total_pages_count_string}";
@@ -39,14 +50,7 @@ export default (()=>{
       var table = {
         rowHeight: 30,
         cellPadding: 10,
-        columns: [
-          {key: 'date', title: 'date', width: 70},
-          {key: 'start', title: 'start', width: 70},
-          {key: 'name', title: 'name', width: 100},
-          {key: 'email', title: 'email', width: 100},
-          {key: 'phone', title: 'phone', width: 90},
-          {key: 'comment', title: 'comment', width: 150}
-        ]
+        columns:titles
       };
       var fontSize = 8 ;
       doc.setFontSize(fontSize);
@@ -57,7 +61,6 @@ export default (()=>{
 
       var cursor = {x : page.margin.left, y : body.y};
 
-      var data = getData(140);
       printRowHeader();
       data.map(function(e,i){
         printRow(e);

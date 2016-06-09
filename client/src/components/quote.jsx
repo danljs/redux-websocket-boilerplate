@@ -2,7 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import QuoteRow from './quote_row'
-import Report from './report'
+import Report from '../util/report.js'
 
 class quote extends React.Component{
   constructor(props) {
@@ -41,9 +41,13 @@ class quote extends React.Component{
           }}/>
           <input className='new-todo' placeholder={lang.what}/>
           <div className='print' onClick={e=>{
-            console.log(this.state.items)
-            console.log(titles)
-            Report.print([...titles, lang.quatity, lang.amount],[...this.state.items])
+            var aaa = this.state.items.map(c=>[...c.items.map(e=>e.item_name), c.quatity + '', c.amount])
+            var bbb = []
+            titles.map(c=>bbb.push({title:c,width:70}))
+            bbb.push({title:lang.quatity,width:70})
+            bbb.push({title:lang.amount,width:70})
+            Report.print(bbb,aaa)
+
           }}/>
         </div>
         <section className='main'><ul>
