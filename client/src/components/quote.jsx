@@ -40,6 +40,7 @@ class quote extends React.Component{
             this.setState({items: [...items, {}]})
           }}/>
           <input className='new-todo' placeholder={lang.what}/>
+          {/*
           <div className='print' onClick={e=>{
             var aaa = this.state.items.map(c=>[...c.items.map(e=>e.item_name), c.quatity + '', c.amount])
             var bbb = []
@@ -48,7 +49,7 @@ class quote extends React.Component{
             bbb.push({title:lang.amount,width:70})
             Report.print(bbb,aaa)
 
-          }}/>
+          }}/>*/}
         </div>
         <section className='main'><ul>
           <li className='row title'>

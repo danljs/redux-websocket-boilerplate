@@ -31,7 +31,6 @@ class quote_row extends React.Component{
               .reduce((p,c)=>p + c, 0) * 100) / 100).toFixed(2)
     }
     this.setState(row)
-    console.log(row) 
     this.props.onChange(row)
   }
   render() {

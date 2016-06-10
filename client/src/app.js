@@ -16,7 +16,7 @@ import store from './store'
 class app extends React.Component{
 	render() {
 		return (
-      <div>{/*<Header/>*/}
+      <div><Header/>
         <div>
           {this.props.children}
         </div>
@@ -29,7 +29,7 @@ render(
     <Provider store={store}>
       <Router history={useRouterHistory(createHashHistory)({ queryKey: false })}>
         <Route path="/" component={app}>
-          <IndexRoute component={login} />
+          <IndexRoute component={quote} />
           <Route path="login" component={login}/>
           <Route path="dashboard" component={dashboard}/>
           <Route path="quote" component={quote}/>
