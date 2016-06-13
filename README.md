@@ -1,4 +1,4 @@
-# fast-booking
+# fast-booking, a mern stack boilerplate.
 Mongo, Express, React-Redux, Nodejs, Websocket and Golang
 
 ![ScreenShot](/screenshots/mern.png)
