@@ -40,16 +40,28 @@ class quote extends React.Component{
             this.setState({items: [...items, {}]})
           }}/>
           <input className='new-todo' placeholder={lang.what}/>
-          {/*
           <div className='print' onClick={e=>{
-            var aaa = this.state.items.map(c=>[...c.items.map(e=>e.item_name), c.quatity + '', c.amount])
-            var bbb = []
-            titles.map(c=>bbb.push({title:c,width:70}))
-            bbb.push({title:lang.quatity,width:70})
-            bbb.push({title:lang.amount,width:70})
-            Report.print(bbb,aaa)
+            //var aaa = this.state.items.map(c=>[...c.items.map(e=>e.item_name), c.quatity + '', c.amount])
+            //var bbb = []
+            //titles.map(c=>bbb.push({title:c,width:70}))
+            //bbb.push({title:lang.quatity,width:70})
+            //bbb.push({title:lang.amount,width:70})
 
-          }}/>*/}
+            var xhr = new XMLHttpRequest()
+            xhr.responseType = 'blob'
+            xhr.onload = () => {
+              var a = document.createElement('a')
+              a.href = window.URL.createObjectURL(xhr.response)
+              a.download = 'testtest.pdf'
+              a.style.display = 'none'
+              document.body.appendChild(a)
+              a.click()
+              document.body.removeChild(a)
+            }
+            xhr.open('GET', '//localhost:1234/pdf')
+            xhr.send()
+            //Report.print(bbb,aaa)
+          }}/>
         </div>
         <section className='main'><ul>
           <li className='row title'>

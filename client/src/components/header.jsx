@@ -8,6 +8,7 @@ class header extends base{
   constructor(props) {
     super(props)
     this.state = {
+      show_lang : false
     }
   }
   componentWillReceiveProps(nextProps){
@@ -27,11 +28,9 @@ class header extends base{
         }}>{lang.quote}</a>
       */}
         <a onClick={e=>{
-          this.props.dispatch(change_lang('en'))
-        }}>{lang.english}</a>
-        <a onClick={e=>{
-          this.props.dispatch(change_lang('ch'))
-        }}>{lang.chinese}</a>
+          this.setState({show_lang : !this.state.show_lang})
+          this.state.show_lang ? this.props.dispatch(change_lang('en')) : this.props.dispatch(change_lang('ch'))
+        }}>{this.state.show_lang ? lang.english : lang.chinese}</a>
       </div>
     )
   }
