@@ -2,8 +2,9 @@
 let WebSocketServer = require('ws').Server
 
 let wss = {}
-module.exports = (host, port, path) => {
-    wss = new WebSocketServer({host : host, port : port, path : path})
+module.exports = (options) => {
+    //options: {server : server, host : host, port : port, path : path}
+    wss = new WebSocketServer(options)
     wss.on('connection', ws => {
         console.log('A ws client connected.')
         ws.on('message', msg => {
