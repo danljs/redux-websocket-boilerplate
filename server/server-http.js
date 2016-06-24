@@ -1,5 +1,5 @@
 'use strict'
-
+module.exports = (() => {
 let http = require('http'),
     report = require('./src/report')
 
@@ -21,3 +21,4 @@ let server = http.createServer((req, res) => {
 });
 
 server.listen(1234, 'localhost', () => console.log(`Application worker ${process.pid} started...`))
+}())
