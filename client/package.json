@@ -5,7 +5,6 @@
   "main": "app.js",
   "dependencies": {
     "history": "^2.0.1",
-    "jspdf": "^1.2.61",
     "moment": "^2.13.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
@@ -38,7 +37,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/danielliu1973/MERN.git"
+    "url": "https://github.com/danljs/"
   },
   "keywords": [
     "Redux",

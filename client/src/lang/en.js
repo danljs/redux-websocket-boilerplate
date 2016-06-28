@@ -8,12 +8,5 @@ module.exports = {
 	sign_in : 'Sign in',
 	add: 'Add',
 	logout: 'Logout',
-	admin: 'Admin',
-	quote: 'Quote',
-	quatity: 'Quatity',
-	amount: 'Amount',
-	summary: 'Summary',
-	item_name: 'item_name_e',
-	what: 'What needs to be done?',
-	select: 'Select...'
+	admin: 'Admin'
 }

@@ -1,10 +1,9 @@
 'use strict'
 import React from 'react'
 import { connect } from 'react-redux'
-import base from './base'
 import moment from 'moment'
 
-class dashboard extends base{
+class dashboard extends React.Component{
   constructor(props) {
       super(props)
       this.state = {
@@ -16,6 +15,10 @@ class dashboard extends base{
         month_last : moment().endOf('month').day(6),
       }
   }
+  
+  static contextTypes = {
+    router: React.PropTypes.object
+  }       
 
   build_weeks(month_first, month_last, events){
     let days_total = month_last.diff(month_first, 'days') + 1;  
@@ -92,7 +95,7 @@ class dashboard extends base{
           </div>
         </div>
         <button type="submit" className="btn btn-default" onClick={e => {
-          me.context.router.push('/quote')
+          me.context.router.push('/admin')
         }}>go!</button>
       </div>
     )

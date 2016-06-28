@@ -2,17 +2,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {change_lang} from '../actions/index'
-import base from './base'
 
-class header extends base{
+class header extends React.Component{
   constructor(props) {
     super(props)
     this.state = {
       show_lang : false
     }
   }
+
+  static contextTypes = {
+    router: React.PropTypes.object
+  }     
+
   componentWillReceiveProps(nextProps){
   }
+  
   render() {
     var lang = this.props.lang.keys
     return (
@@ -26,11 +31,12 @@ class header extends base{
         <a onClick={e=>{
           this.context.router.push('/quote')
         }}>{lang.quote}</a>
-      */}
+      
         <a onClick={e=>{
           this.setState({show_lang : !this.state.show_lang})
           this.state.show_lang ? this.props.dispatch(change_lang('en')) : this.props.dispatch(change_lang('ch'))
         }}>{this.state.show_lang ? lang.english : lang.chinese}</a>
+        */}
       </div>
     )
   }

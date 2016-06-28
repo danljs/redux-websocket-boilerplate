@@ -2,9 +2,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {post_message} from '../actions/index'
-import base from './base'
 
-class login extends base{
+class login extends React.Component{
   constructor(props) {
     super(props)
     this.state={
@@ -12,6 +11,17 @@ class login extends base{
     }
   }
   
+  static contextTypes = {
+    router: React.PropTypes.object
+  }     
+  
+  componentWillReceiveProps(nextProps){
+    console.log(nextProps.ws)
+    if(!this.props.ws.connected && nextProps.ws.connected){
+      return
+    }
+    !!nextProps.ws.received ? this.context.router.push('/dashboard') : ''
+  }
   render() {
     var lang = this.props.lang.keys
     return (
@@ -46,7 +56,6 @@ class login extends base{
                 }
                 e.preventDefault()
                 this.props.dispatch(post_message({author:'message',body:'login'}))
-                this.context.router.push('/dashboard')
               }}>{lang.sign_in}</button>
             </div>
           </div>
