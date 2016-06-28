@@ -1,7 +1,7 @@
 "use strict"
-let WebSocketServer = require('ws').Server
-
-let wss = {}
+let WebSocketServer = require('ws').Server,
+  db_server = require('./db_server'),
+  wss = {}
 module.exports = (options) => {
     //options: {server : server, host : host, port : port, path : path}
     wss = new WebSocketServer(options)
@@ -11,6 +11,7 @@ module.exports = (options) => {
             msg = JSON.parse(msg)
             console.log(msg)
             send({received : msg})
+            db_server.insert()
         })
         ws.on('close', () => {console.log('A ws client disconnected.')})
         ws.on('error', () => {console.log(e)})
