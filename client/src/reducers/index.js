@@ -3,9 +3,7 @@ import { combineReducers } from 'redux'
 import ws_reducer from './ws_reducer'
 import lang_reducer from './lang_reducer'
 
-let last_action = (state=null,action) => {
-	return action
-}
+let last_action = (state=null, action) => action
 
 const rootReducer = combineReducers({
 	last_action: last_action,

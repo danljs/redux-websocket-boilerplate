@@ -15,7 +15,7 @@ module.exports = (options) => {
 
         let response = {
           send : (msg, cb) => {
-            cb = cb || (()=>{})
+            cb = cb || (() => {})
             ws.send(JSON.stringify(msg), err => ws.readyState === 3 ? cb() : cb(err))
           },
           broadcast : msg => wss.clients.map(c => c.send(JSON.stringify(msg)))

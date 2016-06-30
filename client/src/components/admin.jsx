@@ -9,8 +9,7 @@ class admin extends React.Component{
     }
 
   render() {
-    var me = this
-    var lang = me.props.lang.keys
+    var lang = this.props.lang.keys
     return (
       <div className='admin'>
         <div>admin</div>

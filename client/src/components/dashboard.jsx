@@ -53,50 +53,48 @@ class dashboard extends React.Component{
   }
 
   render() {
-    var me = this
-    let parent = this;
     const { dispatch } = this.props;
-    var weeks = this.build_weeks(this.state.month_first, this.state.month_last)
+    let weeks = this.build_weeks(this.state.month_first, this.state.month_last)
     return (
       <div>
         <div>Dashboard</div>
         <div className="calendar">
           <div className="month">
             <div className="week">
-              {
-                this.state.weekdays.map((weekday, i) => {return (
-                  <div key={i} className="header">{weekday}</div>
-                )})
-              }
+            {
+              this.state.weekdays.map((weekday, i) => 
+                <div key={i} className="header">{weekday}</div>
+              )
+            }
             </div>
             {
-              weeks.map((week, i) => {return (
+              weeks.map((week, i) => 
                 <div key={i} className="week">
-                  {
-                    week.days.map((day, ii) => {return (
-                      <div key={ii} className="day" style={{backgroundColor: parent.state.now.format("YYYY-MM-DD") === day.date.format("YYYY-MM-DD") ? '#fcf8e3' : '#fff' }}>
-                        <div className="header">{day.date.date()}</div>
-                        {
-                          day.events.map((event, iii)=>{return (
-                            <div className="event" key={iii}>{event.title} {moment(event.start).format('YYYY-MM-DD')}
-                              onClick={() => {
-                                dispatch(calendar_display(false))
-                                dispatch(form_event(event))
-                              }}
-                            </div>
-                          )})
-                        }
-                      </div>
-                    )})
-                  }
+                {
+                  week.days.map((day, ii) => 
+                    <div key={ii} className="day" style={{backgroundColor: this.state.now.format("YYYY-MM-DD") === day.date.format("YYYY-MM-DD") ? '#fcf8e3' : '#fff' }}>
+                      <div className="header">{day.date.date()}</div>
+                      {
+                        day.events.map((event, iii)=>
+                          <div className="event" key={iii}>{event.title} {moment(event.start).format('YYYY-MM-DD')}
+                            onClick={() => {
+                              dispatch(calendar_display(false))
+                              dispatch(form_event(event))
+                            }}
+                          </div>
+                        )
+                      }
+                    </div>
+                  )
+                }
                 </div>
-              )})
+              )
             }
           </div>
         </div>
-        <button type="submit" className="btn btn-default" onClick={e => {
-          me.context.router.push('/admin')
-        }}>go!</button>
+        <button type="submit" className="btn btn-default" onClick={e => 
+          this.context.router.push('/admin')
+        }>go!</button>
       </div>
     )
   }

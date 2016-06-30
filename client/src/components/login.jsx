@@ -23,7 +23,7 @@ class login extends React.Component{
     !!nextProps.ws.received ? this.context.router.push('/dashboard') : ''
   }
   render() {
-    var lang = this.props.lang.keys
+    let lang = this.props.lang.keys
     return (
       <div className='login'>
         <form className="form-horizontal">
