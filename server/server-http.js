@@ -21,4 +21,4 @@ module.exports = (() => {
   });
 
   server.listen(1234, 'localhost', () => console.log(`Application worker ${process.pid} started...`))
-}())
+})()

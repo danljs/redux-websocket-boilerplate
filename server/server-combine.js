@@ -33,4 +33,4 @@ module.exports = (() => {
   let server = http.createServer(app)
   wss({server : server})
   server.listen('1234', 'localhost', () => console.log('Node server started on 1234'))
-}())
+})()

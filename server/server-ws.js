@@ -6,4 +6,4 @@ module.exports = (() => {
   let wss = require('./src/ws_server')
   wss({host : HOST, port : PORT, path : '/server'})
   console.log('WebSocketServer is listening at ws://%s:%s', HOST, PORT)
-}())
+})()
