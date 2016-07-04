@@ -2,6 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {change_lang} from '../actions/index'
+import {withRouter} from 'react-router'
 
 class header extends React.Component{
   constructor(props) {
@@ -10,10 +11,6 @@ class header extends React.Component{
       show_lang : false
     }
   }
-
-  static contextTypes = {
-    router: React.PropTypes.object
-  }     
 
   componentWillReceiveProps(nextProps){
   }
@@ -26,10 +23,10 @@ class header extends React.Component{
         <a onClick={e=>{
         }}>{lang.logout}</a>
         <a onClick={e=>{
-          this.context.router.push('/admin')
+          this.props.router.push('/admin')
         }}>{lang.admin}</a>
         <a onClick={e=>{
-          this.context.router.push('/quote')
+          this.props.router.push('/quote')
         }}>{lang.quote}</a>
       
         <a onClick={e=>{
@@ -42,4 +39,4 @@ class header extends React.Component{
   }
 }
 
-export default connect(state => ({lang: state.lang}))(header)
+export default connect(state => ({lang: state.lang}))(withRouter(header))

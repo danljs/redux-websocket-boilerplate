@@ -2,6 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import moment from 'moment'
+import {withRouter} from 'react-router'
 
 class dashboard extends React.Component{
   constructor(props) {
@@ -16,10 +17,6 @@ class dashboard extends React.Component{
       }
   }
   
-  static contextTypes = {
-    router: React.PropTypes.object
-  }       
-
   build_weeks(month_first, month_last, events){
     let days_total = month_last.diff(month_first, 'days') + 1;  
     let day_pointer = 0,
@@ -93,7 +90,7 @@ class dashboard extends React.Component{
           </div>
         </div>
         <button type="submit" className="btn btn-default" onClick={e => 
-          this.context.router.push('/admin')
+          this.props.router.push('/admin')
         }>go!</button>
       </div>
     )

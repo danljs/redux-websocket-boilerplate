@@ -3,6 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {post_message} from '../actions/index'
 import {withRouter} from 'react-router'
+import {base} from './base.jsx'
 
 class login extends React.Component{
   constructor(props) {
@@ -15,6 +16,7 @@ class login extends React.Component{
   // static contextTypes = {router: React.PropTypes.object}
   
   componentWillReceiveProps(nextProps){
+    debugger
     console.log(nextProps.ws)
     if(!this.props.ws.connected && nextProps.ws.connected){
       return
@@ -65,4 +67,5 @@ class login extends React.Component{
     )
   }
 }
-export default connect(any => any)(withRouter(login))
+export default connect(any => any)(withRouter(base(login)))
+// export default connect(any => any)(withRouter(login))

@@ -1,16 +1,9 @@
 'use strict'
 let mongoose = require('mongoose'),
 		Schema = mongoose.Schema,
-		mySchema = Schema({name: String}),
-		CONNECTION_STRING = 'mongodb://localhost:27017/boilerplate'
+		mySchema = Schema({name: String})
 
-mongoose.Promise = require('bluebird')
-
-global.db = mongoose.createConnection(CONNECTION_STRING);
-db.on('connected', () => console.log('connected'))
-db.on('error', () => console.log('connection error!!!'))
-
-let model = db.model('MyModel', mySchema)
+let model = global.db.model('MyModel', mySchema)
 
 module.exports = (() => {
 	return {
