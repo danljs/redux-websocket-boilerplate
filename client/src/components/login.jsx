@@ -2,6 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {post_message} from '../actions/index'
+import {withRouter} from 'react-router'
 
 class login extends React.Component{
   constructor(props) {
@@ -11,16 +12,16 @@ class login extends React.Component{
     }
   }
   
-  static contextTypes = {
-    router: React.PropTypes.object
-  }     
+  // static contextTypes = {router: React.PropTypes.object}
   
   componentWillReceiveProps(nextProps){
     console.log(nextProps.ws)
     if(!this.props.ws.connected && nextProps.ws.connected){
       return
     }
-    !!nextProps.ws.received ? this.context.router.push('/dashboard') : ''
+    
+    !!nextProps.ws.received ? this.props.router.push('/dashboard') : ''
+    // !!nextProps.ws.received ? this.context.router.push('/dashboard') : ''
   }
   render() {
     let lang = this.props.lang.keys
@@ -64,4 +65,4 @@ class login extends React.Component{
     )
   }
 }
-export default connect(any => any)(login)
+export default connect(any => any)(withRouter(login))
