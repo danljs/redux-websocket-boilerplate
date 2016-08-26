@@ -16,7 +16,6 @@ class login extends React.Component{
   // static contextTypes = {router: React.PropTypes.object}
   
   componentWillReceiveProps(nextProps){
-    debugger
     console.log(nextProps.ws)
     if(!this.props.ws.connected && nextProps.ws.connected){
       return
