@@ -1,4 +1,4 @@
-package javaserver.model;
+package javaserver.websocket;
 
 public class Device {
 	private int id;

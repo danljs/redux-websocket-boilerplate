@@ -1,0 +1,3 @@
+<listener>
+    <listener-class>org.apache.webbeans.servlet.WebBeansConfigurationListener</listener-class>
+</listener>

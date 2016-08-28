@@ -1,6 +1,5 @@
 package javaserver.websocket;
 import javax.enterprise.context.ApplicationScoped;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -9,7 +8,6 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.websocket.Session;
-import javaserver.model.Device;
 import javax.json.JsonObject;
 import javax.json.spi.JsonProvider;
 
@@ -18,7 +16,7 @@ public class DeviceSessionHandler {
 	private int deviceId = 0;
 	private final Set<Session> sessions = new HashSet<>();
     private final Set<Device> devices = new HashSet<>();
-    
+
     public void addSession(Session session) {
         sessions.add(session);
         for (Device device : devices) {
@@ -73,7 +71,14 @@ public class DeviceSessionHandler {
             sendToAllConnectedSessions(updateDevMessage);
         }
     }
-
+    public void reponseOnly(Session session){
+    	JsonProvider provider = JsonProvider.provider();
+    	JsonObject updateDevMessage = provider.createObjectBuilder()
+                .add("action", "response")
+                .add("status", "OKOK")
+                .build();
+    	sendToSession(session, updateDevMessage);
+    }
     private Device getDeviceById(int id) {
         for (Device device : devices) {
             if (device.getId() == id) {

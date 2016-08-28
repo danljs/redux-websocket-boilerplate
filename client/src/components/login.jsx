@@ -57,7 +57,7 @@ class login extends React.Component{
                   return
                 }
                 e.preventDefault()
-                this.props.dispatch(post_message({author:'message',body:'login'}))
+                this.props.dispatch(post_message({action:'login',author:'message',body:'login'}))
               }}>{lang.sign_in}</button>
             </div>
           </div>

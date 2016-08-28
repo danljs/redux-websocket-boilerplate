@@ -19,8 +19,9 @@ export default (() => {
 
     !!websocket && websocket.readyState === websocket.OPEN ? websocket.close() : ''
     store.dispatch(connecting())
-    // websocket = new WebSocket("ws://" + window.location.hostname + ':8585/server')
-    websocket = new WebSocket("ws://" + window.location.hostname + ':8585')
+    websocket = new WebSocket("ws://" + window.location.hostname + ':8585/server')
+    // websocket = new WebSocket("ws://" + window.location.hostname + ':8080/javaserver/server')
+    // websocket = new WebSocket("ws://" + window.location.hostname + ':8585')
     websocket.onmessage = event => store.dispatch(receive_message(JSON.parse(event.data)))
     websocket.onopen = () => {store.dispatch(connected())}
     websocket.onclose = () => {console.log('websocket.onclose')}
