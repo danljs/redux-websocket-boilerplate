@@ -8,6 +8,7 @@ import { createHashHistory } from 'history'
 
 import Header from './components/header'
 import login from './components/login'
+import register from './components/register'
 import dashboard from './components/dashboard'
 import admin from './components/admin'
 import store from './store'
@@ -30,6 +31,7 @@ render(
         <Route path="/" component={app}>
           <IndexRoute component={login} />
           <Route path="login" component={login}/>
+          <Route path="register" component={register}/>
           <Route path="dashboard" component={dashboard}/>
           <Route path="admin" component={admin}/>
         </Route>

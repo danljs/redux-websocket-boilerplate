@@ -2,7 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {post_message} from '../actions/index'
-import {withRouter} from 'react-router'
+import {withRouter, Link} from 'react-router'
 import {base} from './base.jsx'
 
 class login extends React.Component{
@@ -13,8 +13,6 @@ class login extends React.Component{
     }
   }
   
-  // static contextTypes = {router: React.PropTypes.object}
-  
   componentWillReceiveProps(nextProps){
     console.log(nextProps.ws)
     if(!this.props.ws.connected && nextProps.ws.connected){
@@ -22,44 +20,22 @@ class login extends React.Component{
     }
     
     !!nextProps.ws.received ? this.props.router.push('/dashboard') : ''
-    // !!nextProps.ws.received ? this.context.router.push('/dashboard') : ''
   }
   render() {
     let lang = this.props.lang.keys
     return (
       <div className='login'>
-        <form className="form-horizontal">
-          <div className="form-group">
-            <label htmlFor="inputEmail3" className="col-sm-2 control-label">{lang.email}</label>
-            <div className="col-sm-10">
-              <input ref="email" type="email" className="form-control" id="inputEmail3" placeholder={lang.email}/>
-            </div>
-          </div>
-          <div className="form-group">
-            <label htmlFor="inputPassword3" className="col-sm-2 control-label">{lang.password}</label>
-            <div className="col-sm-10">
-              <input ref="password" type="password" className="form-control" id="inputPassword3" placeholder={lang.password}/>
-            </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-offset-2 col-sm-10">
-              <div className="checkbox">
-                <label>
-                  <input type="checkbox"/> {lang.remember_me}
-                </label>
-              </div>
-            </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-offset-2 col-sm-10">
-              <button type="submit" className="btn btn-default" onClick={e=>{
-                if (!this.refs.email.checkValidity()||!this.refs.password.checkValidity()) {
-                  return
-                }
-                e.preventDefault()
-                this.props.dispatch(post_message({action:'login',author:'message',body:'login'}))
-              }}>{lang.sign_in}</button>
-            </div>
+        <form method="POST" action="${contextPath}/login" className="form-signin">
+          <h2 className="form-heading">Log in</h2>
+          <div className="form-group ${error != null ? 'has-error' : ''}">
+              <span>message</span>
+              <input name="username" ref="username" type="text" className="form-control" placeholder="Username" autofocus="true"/>
+              <input name="password" ref="password" type="password" className="form-control" placeholder="Password"/>
+              <span>error</span>
+              <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+              <button className="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+              <h4 className="text-center"><Link to="/register">Create an account</Link></h4>
           </div>
         </form>
       </div>

@@ -1,4 +1,4 @@
-package com.hellokoding.auth.model;
+package auth.model;
 
 import javax.persistence.*;
 import java.util.Set;
