@@ -1,0 +1,31 @@
+'use strict'
+import fetch from 'whatwg-fetch'
+import { LOGIN, LOGGED_IN, LOGOUT} from '../actions/index'
+
+const initialState = {
+	login: false,
+	logged_in: false
+}
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case LOGIN:
+	    fetch('/users', {
+			  method: 'POST',
+			  headers: {
+			    'Accept': 'application/json',
+			    'Content-Type': 'application/json'
+			  },
+			  body: JSON.stringify({
+			    name: 'Hubot',
+			    login: 'hubot',
+			  })
+			})
+    	return {login: true, logged_in: false}
+    case LOGGED_IN:
+       return {login: false, logged_in: true}
+     case LOGOUT:
+       return {login: false, logged_in: false}
+    default:
+      return state
+  }
+}

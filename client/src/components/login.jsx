@@ -1,7 +1,7 @@
 'use strict'
 import React from 'react'
 import { connect } from 'react-redux'
-import {post_message} from '../actions/index'
+import {loging_in} from '../actions/index'
 import {withRouter, Link} from 'react-router'
 import {base} from './base.jsx'
 
@@ -35,6 +35,15 @@ class login extends React.Component{
               <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
               <button className="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+
+              <button type="submit" className="btn btn-lg btn-primary btn-block" onClick={e=>{
+                if (!this.refs.username.checkValidity()||!this.refs.password.checkValidity()) {
+                  return
+                }
+                e.preventDefault()
+                this.props.dispatch(loging_in({username : this.refs.username, password : this.refs.password}))
+              }}>Log In</button>
+
               <h4 className="text-center"><Link to="/register">Create an account</Link></h4>
           </div>
         </form>

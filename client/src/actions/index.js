@@ -1,12 +1,27 @@
 'use strict'
-export const CHANGE_LANG = 'CHANGE_LANG'
+export const 
+	CHANGE_LANG = 'CHANGE_LANG',
 
-export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE'
-export const POST_MESSAGE = 'POST_MESSAGE'
+	RECEIVE_MESSAGE = 'RECEIVE_MESSAGE',
+	POST_MESSAGE = 'POST_MESSAGE',
+	CONNECTING = 'CONNECTING',
+	CONNECTED =  'CONNECTED',
 
-export const CONNECTING = 'CONNECTING'
-export const CONNECTED =  'CONNECTED'
-export const ERROR =  'ERROR'
+	LOGING_IN = 'LOGING_IN',
+	LOGGED_IN = 'LOGGED_IN',
+	LOGOUT = 'LOGOUT',
+
+	ERROR =  'ERROR'
+
+export let loging_in = (message) => {
+    return {type: LOGING_IN, message}
+}
+export let logged_in = () => {
+    return {type: LOGGED_IN}
+}
+export let logout = () => {
+    return {type: LOGOUT}
+}
 
 export let change_lang = (lang) => {
     return {type: CHANGE_LANG, lang}
