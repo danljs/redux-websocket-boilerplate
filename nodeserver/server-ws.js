@@ -8,7 +8,7 @@ module.exports = (() => {
 
   mongoose.Promise = require('bluebird')
   global.db = mongoose.createConnection(CONNECTION_STRING);
-  db.on('connected', () => console.log('connected'))
+  db.on('connected', () => console.log('db connected'))
   db.on('error', () => console.log('connection error!!!'))
 
   let HOST = '127.0.0.1'
