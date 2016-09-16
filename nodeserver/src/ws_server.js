@@ -1,4 +1,4 @@
-"use strict"
+'use strict';
 let WebSocketServer = require('ws').Server,
     routes = require('./routes')
 module.exports = (options) => {
