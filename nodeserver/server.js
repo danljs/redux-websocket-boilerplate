@@ -10,7 +10,11 @@ module.exports = (() => {
 	    ]
 	})
 	
-	console.log(child.stdio[0])
+	// console.log(child)
+	child.stdout.on('data', (data) => {
+	  console.log(`stdout: ${data}`);
+	});
+
 	var child1 = child_process.fork('server-ws.js')
 	var child2 = child_process.fork('server-express.js')
 })()
