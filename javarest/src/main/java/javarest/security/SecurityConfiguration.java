@@ -14,7 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-	private static String REALM="MY_TEST_REALM";
+	private static String REALM="JAVA_REST_REALM";
 	
 	@Autowired
 	public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {

@@ -4,11 +4,11 @@ import javax.servlet.Filter;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class JavaWorldInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class JavaRestInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
  
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] { JavaConfiguration.class };
+        return new Class[] { JavaRestConfiguration.class };
     }
   
     @Override

@@ -1,4 +1,4 @@
-package com.websystique.springmvc;
+package javarest;
  
 import java.net.URI;
 import java.util.Arrays;
