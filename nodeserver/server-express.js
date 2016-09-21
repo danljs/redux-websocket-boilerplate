@@ -20,6 +20,11 @@ module.exports = (() => {
     res.send('Hello!')
   })
 
+  app.get('/users', (req, res) => {
+    console.log(req.query)
+    res.send(JSON.stringify({ a: 1 }));
+  })
+  
   app.get('/pdf', (req, res) => {
     report.create(req.data, binary => {
       let file_name = tmp_dir + '/test.pdf'

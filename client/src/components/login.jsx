@@ -3,7 +3,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {loging_in} from '../actions/index'
 import {withRouter, Link} from 'react-router'
-import {base} from './base.jsx'
 
 class login extends React.Component{
   constructor(props) {
@@ -14,6 +13,7 @@ class login extends React.Component{
   }
   
   componentWillReceiveProps(nextProps){
+    debugger
     console.log(nextProps.ws)
     if(!this.props.ws.connected && nextProps.ws.connected){
       return
@@ -21,6 +21,7 @@ class login extends React.Component{
     
     !!nextProps.ws.received ? this.props.router.push('/dashboard') : ''
   }
+
   render() {
     let lang = this.props.lang.keys
     return (
@@ -34,14 +35,15 @@ class login extends React.Component{
               <span>error</span>
               <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
-              <button className="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
-
               <button type="submit" className="btn btn-lg btn-primary btn-block" onClick={e=>{
                 if (!this.refs.username.checkValidity()||!this.refs.password.checkValidity()) {
                   return
                 }
                 e.preventDefault()
-                this.props.dispatch(loging_in({username : this.refs.username, password : this.refs.password}))
+                this.props.dispatch(loging_in({
+                  username : this.refs.username.value, 
+                  password : this.refs.password.value
+                }))
               }}>Log In</button>
 
               <h4 className="text-center"><Link to="/register">Create an account</Link></h4>
@@ -51,5 +53,5 @@ class login extends React.Component{
     )
   }
 }
-export default connect(any => any)(withRouter(base(login)))
+export default connect(any => any)(withRouter(login))
 // export default connect(any => any)(withRouter(login))

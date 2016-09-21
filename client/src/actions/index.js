@@ -2,7 +2,7 @@
 export const 
 	CHANGE_LANG = 'CHANGE_LANG',
 
-	RECEIVE_MESSAGE = 'RECEIVE_MESSAGE',
+	// RECEIVE_MESSAGE = 'RECEIVE_MESSAGE',
 	POST_MESSAGE = 'POST_MESSAGE',
 	CONNECTING = 'CONNECTING',
 	CONNECTED =  'CONNECTED',
@@ -38,8 +38,17 @@ export let error = (message) => {
 export let post_message = (message) => {
     return {type: POST_MESSAGE,message}
 }
-export let receive_message = (message) => {
-    return {type: RECEIVE_MESSAGE,message}
-}
+// export let receive_message = (message) => {
+//     return {type: RECEIVE_MESSAGE,message}
+// }
 
+export let receive_message = message => (dispatch, getState) => {
+  switch(message.type){
+    case 'json-response':
+      return dispatch(initial(message.data))
+    case 'print-response':
+      return dispatch(download(message.file.data))
+    default:
+  }
+}
 
