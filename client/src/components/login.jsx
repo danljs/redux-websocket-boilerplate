@@ -1,8 +1,8 @@
 'use strict'
 import React from 'react'
 import { connect } from 'react-redux'
-import {loging_in} from '../actions/index'
-import {withRouter, Link} from 'react-router'
+import { withRouter, Link } from 'react-router'
+import { loging_in } from '../actions/index'
 
 class login extends React.Component{
   constructor(props) {
@@ -25,24 +25,22 @@ class login extends React.Component{
         <form method="POST" action="${contextPath}/login" className="form-signin">
           <h2 className="form-heading">Log in</h2>
           <div className="form-group ${error != null ? 'has-error' : ''}">
-              <span>{this.props.au.message}</span>
-              <input name="username" ref="username" type="text" className="form-control" placeholder="Username" autofocus="true"/>
-              <input name="password" ref="password" type="password" className="form-control" placeholder="Password"/>
-              <span>error</span>
-              <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <span>{this.props.au.message}</span>
+            <input name="username" ref="username" type="text" className="form-control" placeholder="Username" autofocus="true"/>
+            <input name="password" ref="password" type="password" className="form-control" placeholder="Password"/>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
-              <button type="submit" className="btn btn-lg btn-primary btn-block" onClick={e=>{
-                if (!this.refs.username.checkValidity()||!this.refs.password.checkValidity()) {
-                  return
-                }
-                e.preventDefault()
-                this.props.dispatch(loging_in({
-                  username : this.refs.username.value, 
-                  password : this.refs.password.value
-                }))
-              }}>Log In</button>
-
-              <h4 className="text-center"><Link to="/register">Create an account</Link></h4>
+            <button type="submit" className="btn btn-lg btn-primary btn-block" onClick={e=>{
+              if (!this.refs.username.checkValidity()||!this.refs.password.checkValidity()) {
+                return
+              }
+              e.preventDefault()
+              this.props.dispatch(loging_in({
+                username : this.refs.username.value, 
+                password : this.refs.password.value
+              }))
+            }}>Log In</button>
+            <h4 className="text-center"><Link to="/register">Create an account</Link></h4>
           </div>
         </form>
       </div>

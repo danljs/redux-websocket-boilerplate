@@ -73,7 +73,6 @@
   margin-bottom: 1px;
 }
 .calendar .month .week .day {
-  width: 90%;
   cursor: pointer;
   height: auto;
   min-height: 50px;

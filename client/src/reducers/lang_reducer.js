@@ -3,12 +3,9 @@ import { CHANGE_LANG } from '../actions/index'
 import ch from '../lang/ch'
 import en from '../lang/en'
 
-const langs = {
-	ch: ch,
-	en: en
-}
+const langs = { ch, en }
 const initialState = {
-	keys: langs['en']
+  keys: langs.en,
 }
 export default (state = initialState, action) => {
   switch (action.type) {
