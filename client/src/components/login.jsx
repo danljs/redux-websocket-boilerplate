@@ -13,13 +13,9 @@ class login extends React.Component{
   }
   
   componentWillReceiveProps(nextProps){
-    debugger
-    console.log(nextProps.ws)
-    if(!this.props.ws.connected && nextProps.ws.connected){
-      return
+    if(!this.props.au.connected && nextProps.au.connected){
+      this.props.router.push('/dashboard')
     }
-    
-    !!nextProps.ws.received ? this.props.router.push('/dashboard') : ''
   }
 
   render() {
@@ -29,7 +25,7 @@ class login extends React.Component{
         <form method="POST" action="${contextPath}/login" className="form-signin">
           <h2 className="form-heading">Log in</h2>
           <div className="form-group ${error != null ? 'has-error' : ''}">
-              <span>message</span>
+              <span>{this.props.au.message}</span>
               <input name="username" ref="username" type="text" className="form-control" placeholder="Username" autofocus="true"/>
               <input name="password" ref="password" type="password" className="form-control" placeholder="Password"/>
               <span>error</span>

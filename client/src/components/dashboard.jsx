@@ -96,4 +96,4 @@ class dashboard extends React.Component{
     )
   }
 }
-export default connect(any => any)(dashboard)
+export default connect(any => any)(withRouter(dashboard))

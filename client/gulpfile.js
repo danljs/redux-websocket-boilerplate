@@ -8,7 +8,15 @@ let gulp = require('gulp'),
     less = require('gulp-less'),
     minify_css = require('gulp-minify-css'),
     plumber = require('gulp-plumber'),
-    watch = require('gulp-watch')
+    watch = require('gulp-watch'),
+    eslint = require('gulp-eslint')
+
+gulp.task('lint', () =>
+    gulp.src(['src/**/*', '!node_modules/**'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
+)
 
 gulp.task('make', () => {
   gulp.start('js')
@@ -18,6 +26,7 @@ gulp.task('make', () => {
 gulp.task('watch', () => {
   watch(['src/**/*'], () => gulp.start('js'))
   watch(['less/**/*'], () => gulp.start('css'))
+  watch(['src/**/*'], () => gulp.start('lint'))
 })
 
 gulp.task('js', () => 
