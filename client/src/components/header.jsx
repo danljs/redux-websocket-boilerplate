@@ -1,25 +1,25 @@
 'use strict'
 import React from 'react'
 import { connect } from 'react-redux'
-import {change_lang} from '../actions/index'
-import {withRouter} from 'react-router'
+import { withRouter } from 'react-router'
+import { change_lang } from '../actions/index'
 
-class header extends React.Component{
+class header extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      show_lang : false
+      show_lang: false,
     }
   }
 
-  componentWillReceiveProps(nextProps){
-  }
-  
+  // componentWillReceiveProps(nextProps) {
+  // }
+
   render() {
-    var lang = this.props.lang.keys
+    const lang = this.props.lang.keys
     return (
-      <div className='header-area'>
-      {/*
+      <div className="header-area">
+        {/*
         <a onClick={e=>{
         }}>{lang.logout}</a>
         <a onClick={e=>{
@@ -28,7 +28,7 @@ class header extends React.Component{
         <a onClick={e=>{
           this.props.router.push('/quote')
         }}>{lang.quote}</a>
-      
+
         <a onClick={e=>{
           this.setState({show_lang : !this.state.show_lang})
           this.state.show_lang ? this.props.dispatch(change_lang('en')) : this.props.dispatch(change_lang('ch'))
@@ -38,5 +38,4 @@ class header extends React.Component{
     )
   }
 }
-
-export default connect(state => ({lang: state.lang}))(withRouter(header))
+export default connect(state => ({ lang: state.lang }))(withRouter(header))

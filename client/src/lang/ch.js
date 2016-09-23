@@ -9,4 +9,5 @@ module.exports = {
   add: '追加',
   logout: '注销',
   admin: '管理',
+  submit: '提交',
 }

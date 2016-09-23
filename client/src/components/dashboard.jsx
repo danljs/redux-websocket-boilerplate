@@ -5,6 +5,38 @@ import moment from 'moment'
 import { withRouter } from 'react-router'
 
 class dashboard extends React.Component {
+  static build_weeks(month_first, month_last, events) {
+    const days_total = month_last.diff(month_first, 'days') + 1
+    let day_pointer = 0
+    let week_pointer = 0
+    const weeks = []
+    for (let i = 0, m = parseInt(days_total / 7, 10); i < m; i += 1) {
+      weeks.push({ days: [] })
+    }
+
+    while (day_pointer < days_total) {
+      day_pointer += 1
+      const date_events = {
+        date: moment(month_first).add(day_pointer - 1, 'days'),
+        events: [],
+      }
+      if (events && events.length > 0) {
+        for (let i = 0; i < events.length; i += 1) {
+          if (date_events.date.format('YYYY-MM-DD') === moment(events[i].start).format('YYYY-MM-DD')) {
+            date_events.events.push(events[i])
+            events.splice(i, 1)
+          }
+        }
+      }
+
+      weeks[week_pointer].days.push(date_events)
+      if (day_pointer > 0 && day_pointer % 7 === 0) {
+        week_pointer += 1
+      }
+    }
+    return weeks
+  }
+
   constructor(props) {
     super(props)
     this.state = {
@@ -16,66 +48,40 @@ class dashboard extends React.Component {
     }
   }
 
-  build_weeks(month_first, month_last, events) {
-    const days_total = month_last.diff(month_first, 'days') + 1;  
-    let day_pointer = 0,
-        week_pointer = 0; 
-    const weeks = [];
-    for(let i = 0, m = parseInt(days_total / 7); i < m; i++){
-      weeks.push({ days: [] });
-    }
-
-    while(day_pointer < days_total) {
-      day_pointer ++;
-      let date_events = {
-        date: moment(month_first).add(day_pointer - 1, 'days'),
-        events: []
-      }
-      if (events && events.length > 0) {
-        for (let i = 0; i < events.length; i ++) {
-          if (date_events.date.format('YYYY-MM-DD') === moment(events[i].start).format('YYYY-MM-DD')) {
-            date_events.events.push(events[i]);
-            events.splice(i, 1);
-          }
-        }
-      }
-
-      weeks[week_pointer].days.push(date_events);
-      if (day_pointer > 0 && day_pointer % 7 === 0) {
-        week_pointer ++;
-      }
-    }
-    return weeks;
-  }
-
   render() {
-    const { dispatch } = this.props;
-    let weeks = this.build_weeks(this.state.month_first, this.state.month_last)
+    const { dispatch } = this.props
+    const weeks = this.build_weeks(this.state.month_first, this.state.month_last)
     return (
       <div>
         <div>Dashboard</div>
         <div className="calendar">
           <div className="month">
             <div className="week">
-            {
-              this.state.weekdays.map((weekday, i) => 
+              {
+              this.state.weekdays.map((weekday, i) =>
                 <div key={i} className="header">{weekday}</div>
               )
             }
             </div>
             {
-              weeks.map((week, i) => 
+              weeks.map((week, i) =>
                 <div key={i} className="week">
-                {
-                  week.days.map((day, ii) => 
-                    <div key={ii} className="day" style={{backgroundColor: this.state.now.format("YYYY-MM-DD") === day.date.format("YYYY-MM-DD") ? '#fcf8e3' : '#fff' }}>
+                  {
+                  week.days.map((day, ii) =>
+                    <div
+                      key={ii}
+                      className="day"
+                      style={{
+                        backgroundColor: this.state.now.format('YYYY-MM-DD') === day.date.format('YYYY-MM-DD') ? '#fcf8e3' : '#fff',
+                      }}
+                    >
                       <div className="header">{day.date.date()}</div>
                       {
-                        day.events.map((event, iii)=>
+                        day.events.map((event, iii) =>
                           <div className="event" key={iii}>{event.title} {moment(event.start).format('YYYY-MM-DD')}
                             onClick={() => {
-                              dispatch(calendar_display(false))
-                              dispatch(form_event(event))
+                              // dispatch(calendar_display(false))
+                              // dispatch(form_event(event))
                             }}
                           </div>
                         )
@@ -88,9 +94,13 @@ class dashboard extends React.Component {
             }
           </div>
         </div>
-        <button type="submit" className="btn btn-default" onClick={e => 
-          this.props.router.push('/admin')
-        }>go!</button>
+        <button
+          type="submit"
+          className="btn btn-default"
+          onClick={() => this.props.router.push('/admin')}
+        >
+        go!
+        </button>
       </div>
     )
   }

@@ -9,4 +9,5 @@ module.exports = {
   add: 'Add',
   logout: 'Logout',
   admin: 'Admin',
+  submit: 'Submit',
 }

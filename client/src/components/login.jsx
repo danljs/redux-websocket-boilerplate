@@ -43,7 +43,7 @@ class login extends React.Component {
                   password: this.refs.password.value,
                 }))
               }}
-            >{lang.sing_in}</button>
+            >{lang.sign_in}</button>
             <h4 className="text-center"><Link to="/register">Create an account</Link></h4>
           </div>
         </form>
