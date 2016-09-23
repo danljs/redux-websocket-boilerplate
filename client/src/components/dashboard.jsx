@@ -2,39 +2,38 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import moment from 'moment'
-import {withRouter} from 'react-router'
+import { withRouter } from 'react-router'
 
-class dashboard extends React.Component{
+class dashboard extends React.Component {
   constructor(props) {
-      super(props)
-      this.state = {
-        now: moment(),
-        weekdays: ['SUN','MON','TUE','WED','THU','FRI','SAT'],
-        now : moment(),
-        selected_date : moment(),
-        month_first : moment().date(1).day(0),
-        month_last : moment().endOf('month').day(6),
-      }
+    super(props)
+    this.state = {
+      now: moment(),
+      weekdays: ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
+      selected_date: moment(),
+      month_first: moment().date(1).day(0),
+      month_last: moment().endOf('month').day(6),
+    }
   }
-  
-  build_weeks(month_first, month_last, events){
-    let days_total = month_last.diff(month_first, 'days') + 1;  
+
+  build_weeks(month_first, month_last, events) {
+    const days_total = month_last.diff(month_first, 'days') + 1;  
     let day_pointer = 0,
         week_pointer = 0; 
-    let weeks = [];
+    const weeks = [];
     for(let i = 0, m = parseInt(days_total / 7); i < m; i++){
-      weeks.push({days: []});
-    } 
-    
-    while(day_pointer < days_total){
+      weeks.push({ days: [] });
+    }
+
+    while(day_pointer < days_total) {
       day_pointer ++;
       let date_events = {
         date: moment(month_first).add(day_pointer - 1, 'days'),
         events: []
       }
-      if(events && events.length > 0){
-        for(let i = 0; i < events.length; i ++){
-          if(date_events.date.format('YYYY-MM-DD') === moment(events[i].start).format('YYYY-MM-DD')){
+      if (events && events.length > 0) {
+        for (let i = 0; i < events.length; i ++) {
+          if (date_events.date.format('YYYY-MM-DD') === moment(events[i].start).format('YYYY-MM-DD')) {
             date_events.events.push(events[i]);
             events.splice(i, 1);
           }
@@ -42,7 +41,7 @@ class dashboard extends React.Component{
       }
 
       weeks[week_pointer].days.push(date_events);
-      if(day_pointer > 0 && day_pointer % 7 === 0){
+      if (day_pointer > 0 && day_pointer % 7 === 0) {
         week_pointer ++;
       }
     }

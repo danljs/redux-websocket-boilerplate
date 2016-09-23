@@ -13,15 +13,13 @@ import dashboard from './components/dashboard'
 import admin from './components/admin'
 import store from './store'
 
-const app = (props) => {
-  return (
-    <div><Header />
-      <div>
-        { props.children }
-      </div>
+const app = props => (
+  <div><Header />
+    <div>
+      { props.children }
     </div>
-  )
-}
+  </div>
+)
 
 render(
   <Provider store={store}>

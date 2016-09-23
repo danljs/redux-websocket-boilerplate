@@ -20,14 +20,16 @@ export default (() => {
         return websocket.send(JSON.stringify(last_action.message))
       case LOGING_IN: {
         const url = new URL(AU_URL)
-        const params = { 
+        const params = {
           user: last_action.message.username,
-          pwd: btoa(last_action.message.password)
+          pwd: btoa(last_action.message.password),
         }
         Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
         fetch(url).then(response => response.json().then((data) => {
           console.log(data)
-          !!websocket && websocket.readyState === websocket.OPEN ? websocket.close() : ''
+          if (!!websocket && websocket.readyState === websocket.OPEN) {
+            websocket.close()
+          }
           store.dispatch(connecting())
           websocket = new WebSocket(WS_URL)
           websocket.onmessage = event => store.dispatch(receive_message(JSON.parse(event.data)))

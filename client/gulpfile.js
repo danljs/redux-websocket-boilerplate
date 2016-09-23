@@ -30,7 +30,7 @@ gulp.task('watch', () => {
 })
 
 gulp.task('js', () => 
-  browserify({entries: './src/app.js', extensions: ['.jsx','.js']})
+  browserify({entries: './src/app.jsx', extensions: ['.jsx','.js']})
   .transform(babelify.configure({stage: 0}))
   .bundle()
   .pipe(source('app.js'))

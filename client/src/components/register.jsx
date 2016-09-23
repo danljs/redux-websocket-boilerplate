@@ -1,41 +1,43 @@
 'use strict'
 import React from 'react'
 import { connect } from 'react-redux'
-import {post_message} from '../actions/index'
-import {withRouter} from 'react-router'
+import { withRouter } from 'react-router'
+import { post_message } from '../actions/index'
 
 class register extends React.Component{
   constructor(props) {
     super(props)
-    this.state={
+    this.state = {
       info: ''
     }
   }
 
-  componentWillReceiveProps(nextProps){
+  componentWillReceiveProps(nextProps) {
     console.log(nextProps.ws)
-    if(!this.props.ws.connected && nextProps.ws.connected){
+    if (!this.props.ws.connected && nextProps.ws.connected) {
       return
     }
     
-    !!nextProps.ws.received ? this.props.router.push('/dashboard') : ''
+    if (!!nextProps.ws.received) {
+      this.props.router.push('/dashboard')
+    }
   }
 
   render() {
     let lang = this.props.lang.keys
     return (
-      <div className='register'>
+      <div className="register">
         <form method="POST" modelAttribute="userForm" className="form-signin">
           <h2 className="form-signin-heading">Create your account</h2>
-          <div className="form-group ${status.error ? 'has-error' : ''}">
+          <div className="form-group">
               <input type="text" ref="username" className="form-control" placeholder="Username" autofocus="true"/>
               <span>error username</span>
           </div>
-          <div className="form-group ${status.error ? 'has-error' : ''}">
+          <div className="form-group">
               <input type="password" ref="password" className="form-control" placeholder="Password"/>
               <span>error password</span>
           </div>
-          <div className="form-group ${status.error ? 'has-error' : ''}">
+          <div className="form-group">
               <input type="password" ref="passwordConfirm" className="form-control" placeholder="Confirm your password"/>
               <span>error passwordConfirm</span>
           </div>

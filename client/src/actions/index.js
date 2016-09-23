@@ -10,31 +10,35 @@ export const LOGOUT = 'LOGOUT'
 
 export const ERROR = 'ERROR'
 
-export const loging_in = (message) => {
-  return { type: LOGING_IN, message }
-}
-export const logged_in = () => {
-  return { type: LOGGED_IN }
-}
-export const logout = () => {
-  return { type: LOGOUT }
-}
+export const loging_in = message => ({
+  type: LOGING_IN,
+  message,
+})
+export const logged_in = () => ({
+  type: LOGGED_IN,
+})
+export const logout = () => ({
+  type: LOGOUT,
+})
 
-export const change_lang = (lang) => {
-  return { type: CHANGE_LANG, lang }
-}
-export const connecting = () => {
-  return { type: CONNECTING }
-}
-export const connected = () => {
-  return { type: CONNECTED }
-}
-export const error = (message) => {
-  return { type: ERROR, message }
-}
-export const post_message = (message) => {
-  return { type: POST_MESSAGE, message }
-}
+export const change_lang = lang => ({
+  type: CHANGE_LANG,
+  lang,
+})
+export const connecting = () => ({
+  type: CONNECTING,
+})
+export const connected = () => ({
+  type: CONNECTED,
+})
+export const error = message => ({
+  type: ERROR,
+  message,
+})
+export const post_message = message => ({
+  type: POST_MESSAGE,
+  message,
+})
 // export const receive_message = (message) => {
 //     return {type: RECEIVE_MESSAGE,message}
 // }
