@@ -4,39 +4,39 @@ import { connect } from 'react-redux'
 import moment from 'moment'
 import { withRouter } from 'react-router'
 
-class dashboard extends React.Component {
-  static build_weeks(month_first, month_last, events) {
-    const days_total = month_last.diff(month_first, 'days') + 1
-    let day_pointer = 0
-    let week_pointer = 0
-    const weeks = []
-    for (let i = 0, m = parseInt(days_total / 7, 10); i < m; i += 1) {
-      weeks.push({ days: [] })
-    }
-
-    while (day_pointer < days_total) {
-      day_pointer += 1
-      const date_events = {
-        date: moment(month_first).add(day_pointer - 1, 'days'),
-        events: [],
-      }
-      if (events && events.length > 0) {
-        for (let i = 0; i < events.length; i += 1) {
-          if (date_events.date.format('YYYY-MM-DD') === moment(events[i].start).format('YYYY-MM-DD')) {
-            date_events.events.push(events[i])
-            events.splice(i, 1)
-          }
-        }
-      }
-
-      weeks[week_pointer].days.push(date_events)
-      if (day_pointer > 0 && day_pointer % 7 === 0) {
-        week_pointer += 1
-      }
-    }
-    return weeks
+const build_weeks = (month_first, month_last, events) => {
+  const days_total = month_last.diff(month_first, 'days') + 1
+  let day_pointer = 0
+  let week_pointer = 0
+  const weeks = []
+  for (let i = 0, m = parseInt(days_total / 7, 10); i < m; i += 1) {
+    weeks.push({ days: [] })
   }
 
+  while (day_pointer < days_total) {
+    day_pointer += 1
+    const date_events = {
+      date: moment(month_first).add(day_pointer - 1, 'days'),
+      events: [],
+    }
+    if (events && events.length > 0) {
+      for (let i = 0; i < events.length; i += 1) {
+        if (date_events.date.format('YYYY-MM-DD') === moment(events[i].start).format('YYYY-MM-DD')) {
+          date_events.events.push(events[i])
+          events.splice(i, 1)
+        }
+      }
+    }
+
+    weeks[week_pointer].days.push(date_events)
+    if (day_pointer > 0 && day_pointer % 7 === 0) {
+      week_pointer += 1
+    }
+  }
+  return weeks
+}
+
+class dashboard extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -50,7 +50,7 @@ class dashboard extends React.Component {
 
   render() {
     const { dispatch } = this.props
-    const weeks = this.build_weeks(this.state.month_first, this.state.month_last)
+    const weeks = build_weeks(this.state.month_first, this.state.month_last)
     return (
       <div>
         <div>Dashboard</div>
